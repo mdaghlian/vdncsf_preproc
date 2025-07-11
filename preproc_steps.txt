@@ -1,0 +1,35 @@
+# ****************************** RUNNING PREPROC 
+[*] Ensure naming is correct: copying from rawdata->sourcedata
+sub-***_ses-LE_task-CSF_run-
+Replace any CSFLE -> CSF (& pRFLE etc)
+Also need to do rename inside .PAR files 
+Do this with the following (replacing as necessary)
+find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/ses-LE/ses-A/g'
+
+Also do renaming for anatomical files into a separate session
+ses-A (for anatomy)
+
+[*] BIDSify with fmriproc: e.g.,
+master -m 02a -s amb01 -n LE 
+
+[*] For ses-A need to do something special- to fix the renaming / phase separation issue
+master02a_MP2rage_fix.sh -s amb01 -n A
+
+[*] MRIqc: quality control for bold with mriqc 
+master -m 02b -s amb01 -n LE --func-only
+
+Inspect the outputs
+
+[*] pymp2rage 
+creating T1w/T1map images from the first and second inversion images using Pymp2rage.
+master -m 04 -s amb01 -n A
+
+[*] ANT registration - for MNI image; which helps with making a really good mask
+master -m 05b -s amb01 -n A 
+
+[*] Bias correction is applied to remove intensity inhomogeneities. To apply bias correction and denoising:
+
+master -m 08 -s amb01 -n A
+
+[*] 
+

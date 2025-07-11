@@ -1,0 +1,49 @@
+# stuff about the project
+export DIR_PROJECTS="/data1/projects/dumoulinlab/Lab_members/Marcus/projects"
+export PROJECT="vdNCSF/BIDS_directory"
+export TASK_IDS=("CSF" "pRF") # ("task1" "task2" "task3")
+export PATH_HOME="${DIR_PROJECTS}/logs"
+export SUBJECT_PREFIX="sub-"
+
+# stuff about the anatomical configuration
+export ACQ=("MP2RAGE")  # or ("MP2RAGE" "MP2RAGEME")
+export DATA=${ACQ[0]}   # or MP2RAGEME/AVERAGE
+export SEARCH_ANATOMICALS=("T2w" "FLAIR" "T1w")
+
+# phase encoding direction for BOLD; assume inverse for FMAP
+export PE_DIR_BOLD="AP"
+
+# GRID ENGINE
+export SGE_QUEUE_LONG="long.q@jupiter" # SGE_QUEUE_LONG="long" on SLURM
+export SGE_QUEUE_SHORT="short.q@jupiter" # SGE_QUEUE_LONG="long" on SLURM
+
+# MATLAB
+## Full installation
+export SKIP_LINES=0
+export MATLAB_CMD="matlab -nosplash -nodisplay -batch" # find with 'which matlab'
+export SPM_PATH="/packages/matlab/toolbox/spm12"
+
+# export SPM_PATH=${PATH_HOME}/spm12    
+
+## MCR
+# install_dir="${HOME}/software/CAT12.9_R2023b_MCR_Mac"
+# export MATLAB_CMD="${install_dir}/run_spm12.sh ${MCRROOT} script"
+# export SPM_PATH="${install_dir}/spm12.app/Contents/Resources/spm12_mcr/Users/gaser/spm/spm12"
+
+# PYBEST
+export PYBEST_SPACE="fsnative"
+export PYBEST_N_COMPS=20
+
+# fMRIPREP
+export MRIQC_SIMG=/packages/singularity_containers/containers_bids-mriqc--23.0.1.simg
+export FPREP_SIMG=/packages/singularity_containers/containers_bids-fmriprep--20.2.5.simg
+export FPREP_OUT_SPACES="fsnative func"
+export FPREP_BINDING="$(dirname ${DIR_PROJECTS})" # binding directory for singularity image
+export FS_LICENSE=${REPO_DIR}/misc/license.txt # this thing needs to be along the FPREP_BINDING path!
+export CIFTI="" # leave empty if you don't want cifti output
+export DO_SYN=0 # set to zero if you do not want additional syn-distortion correction
+export BOLD_T1W_INIT="register" # default = register; for partial FOV, set to 'header'
+
+
+# FREESURFER
+export SUBJECTS_DIR="${DIR_PROJECTS}/${PROJECT}/derivatives/freesurfer"
