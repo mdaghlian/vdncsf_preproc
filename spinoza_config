@@ -21,7 +21,7 @@ export SGE_QUEUE_SHORT="short.q@jupiter" # SGE_QUEUE_LONG="long" on SLURM
 ## Full installation
 export SKIP_LINES=0
 export MATLAB_CMD="matlab -nosplash -nodisplay -batch" # find with 'which matlab'
-export SPM_PATH="/packages/matlab/toolbox/spm12"
+export SPM_PATH="/data1/projects/dumoulinlab/Lab_members/Marcus/programs/spm12"
 
 # export SPM_PATH=${PATH_HOME}/spm12    
 

@@ -17,7 +17,7 @@ while getopts "s:n:" opt; do
 done
 
 ANAT_IN_PATH=${DIR_DATA_SOURCE}/${SUB_VAR}/${SES_VAR}
-ANAT_OUT_PATH=${DIR_DATA_HOME}/${SUB_VAR}/${SES_VAR}
+ANAT_OUT_PATH=${DIR_DATA_HOME}/${SUB_VAR}/${SES_VAR}/anat
 if [ ! -d "$ANAT_OUT_PATH" ]; then
   echo "Directory '$ANAT_OUT_PATH' does not exist. Creating it..."
   mkdir -p "$ANAT_OUT_PATH"
