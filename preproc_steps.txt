@@ -21,17 +21,15 @@ master -m 02b -s gla03 -n LE --func-only
 
 Inspect the outputs
 
-
-# [*] master -m 04:  pymp2rage 
-creating T1w/T1map images from the first and second inversion images using Pymp2rage.
-master -m 04 -s amb01 -n A
-
-
-# [*] EXTRA STEP: rigid body registration for T2w 
+# [*] EXTRA STEP: rigid body registration for T2w + master -m 04
 - extra step from, not in jurjens pipeline
 - need the T2w to be in same space as T1w, so coregistering it to the T1w in pymp2rage
 
 T2w_register.sh -s amb01 -n A 
+
+
+BEFORE PROCEEDING CHECK THAT THE OUTPUTS IN PYMPR2RAGE ARE ALL THE SAME space
+LOAD IN fsleyes... -> look for red
 
 # [*] master -m 05b: ANT registration
 for MNI image; which helps with making a really good mask
@@ -68,6 +66,12 @@ NEED NIGHRES -> did this in .bash_profile
 export JCC_JDK="/packages/development/anaconda/3-8/envs/preproc" 
 export JAVA_HOME="${JCC_JDK}"
 
+# gla02 -> cat12 keeps failing
+gonna just push it through with denoised folder 
+spinoza_dura -s gla02 -n A /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/denoised /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/nighres /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/manual_masks
 
-# [*] master -m 12: sagittal Sinus
-master -m 12 -s amb01 -n A
+
+# [*] master -m 13: spinoza_masking
+master -m 13 -s ctrl01 -n A
+
+

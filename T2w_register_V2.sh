@@ -8,11 +8,13 @@ SES_VAR="ses-A"
 while getopts "s:n:" opt; do
   case $opt in
     s)
-      SUB_VAR="sub-$OPTARG"
-      ;;
+        sub="${OPTARG}"
+        SUB_VAR="sub-$OPTARG"
+        ;;
     n)
-      SES_VAR="ses-$OPTARG"
-      ;;
+        ses="${OPTARG}"
+        SES_VAR="ses-$OPTARG"
+        ;;
   esac
 done
 
@@ -65,10 +67,14 @@ else
         echo Doing registration
         call_antsregistration ${PYMP_T1} ${ANAT_NOTCOREG_T2} ${ANAT_PATH}/T1to2_coreg_ rigid
     fi
-
-    echo Applying transform
-    call_antsapplytransforms ${PYMP_T1} ${ANAT_NOTCOREG_T2} ${ANAT_T2} ${ANAT_PATH}/T1to2_coreg_genaff.mat
-
+    if [ ! -f "${ANAT_T2}" ]; then 
+        echo Applying transform
+        call_antsapplytransforms ${PYMP_T1} ${ANAT_NOTCOREG_T2} ${ANAT_T2} ${ANAT_PATH}/T1to2_coreg_genaff.mat
+        echo "We also have to copy the geometry something about it not copying over..."
+        fslcpgeom ${PYMP_T1} ${ANAT_T2}
+    else
+        echo "T2w image already exists at ${ANAT_T2}, skipping transformation."
+    fi
 fi
 
 echo "Updating T2 in pymp2rage" 
@@ -82,5 +88,9 @@ fi
 
 # Finally - run the full spinoza_qmri pipeline
 echo "Running spinoza_qmri pipeline"
-master -m 04 -s ${SUB_VAR} -n ${SES_VAR}
+master -m 04 -s ${sub} -n ${ses} --full
+echo "ARGHHHHH need to copy geometry"
+# the T1w gets overwritten in the cleaning somehow...
+fslcpgeom ${PYMP_T2} ${PYMP_T1} -q # backwards now...
+
 
