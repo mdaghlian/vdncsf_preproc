@@ -1,0 +1,39 @@
+# Follow jurjen fmriproc 
+https://github.com/mdaghlian/fmriproc
+
+[1] New conda environment
+
+conda create --prefix=~/.conda/envs/fmriproc_00X python=3.11
+
+[2] Pip install 
+
+pip install git+https://github.com/mdaghlian/fmriproc
+
+[3] Set up the config file 
+- see the spinoza_config file in this repo
+
+[4] Setting up SPM and CAT 12 
+- Tricky apparently
+- need to have access to an spm folder with cat12 in it
+- export SPM_PATH="/packages/matlab/toolbox/spm12" seems to do the trick (inside spinoza config)
+
+
+# fmriproc editing
+* Jurjen has made a fantasitc pipeline for running preprocessing
+* but sometimes it needs to be edited
+* the way to do this properly is: 
+
+[1] git fork your own fmriproc
+[2] pip install git+<your_fork>
+[3] If something goes wrong: trouble shoot and edit the pip installed files
+- code $(which call_blah)
+- make edits, test, repeat
+[4] When you have found the fix
+- copy the change from [3] into your local fork 
+- stage, commit and push the changes to the github
+- then reinstall it to your environment 
+- the flags mean you don't have to do everything again...
+pip install --upgrade --no-deps git+https://github.com/mdaghlian/fmriproc
+
+Is it a problem in general? Then consider putting in a pull request
+

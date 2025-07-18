@@ -1,0 +1,145 @@
+# [A] NAMING: Ensure naming is correct: copying from rawdata->sourcedata
+ses-A: for anatomies
+ses-LE: for LE data (func)
+ses-RE: for RE data (func)
+
+See naming style in folders and follow it
+
+Any changes you make to names of PAR/REC files
+Also need to be done inside the par files 
+Do this with the following (replacing as necessary)
+find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/pRFLE/pRF/g'
+
+Also do renaming for anatomical files into a separate session
+ses-A (for anatomy)
+
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [B] BIDS-func: BIDSify functional data (use fmriproc)
+
+> master -m 02a -s amb01 -n LE 
+
+------------------------------------------------------------
+
+# [C] BIDS-anat BIDSify anatomical data
+- Currently a bug in fmriproc for phase separation of MP2RAGE
+- So run the following script to do BIDSifying
+
+> ./C_bidsify_anatomy.sh -s amb01 -n A
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [D] MRIqc: reports for functional data
+
+> master -m 02b -s gla03 -n LE 
+
+Inspect the outputs
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [E] T2w-pymp: registration for T2w & pymp2rage
+- make sure T2w and T1w are aligned 
+- do the pymp2rage stage (gets T1w from inversions of mp2rage)
+
+> ./E_T2w_register_and_pymp2rage.sh -s amb01 -n A 
+
+* Note - sometimes the copying of geometry is not correct for anatomical files
+* At each stage marked <CHECK-GEOM> do the following
+* Load all the anatomical files into fsleyes
+* Does it give the red warning in the bottom right? (not in same view?)
+* Check which is the culprit (normally *T1w.nii.gz)
+* fslorient -getsform <file> 
+* if it doesn't look right (i.e., a bunch of 000000)
+* find your anatomies with good geometry
+* fslcpgeom <good-file> <bad-file> 
+* FIXED
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [F] ANTs-MNI registration 
+for MNI image; which helps with making a really good mask
+
+> master -m 05b -s amb01 -n A 
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [G] MNI-sinus:  Sinus mask from MNI 
+use outputs of F to create a mask 
+
+Notes - originally the idea was to use the T1w/T2w ratio
+JH - now recommends using T2w only... But 
+
+> master -m 07 -s amb01 -n A
+
+NOTE - may have to redo this properly with itk snap and editing later...  [--itk]
+
+<CHECK-GEOM>
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [H] bias correction (denoised folder)
+is applied to remove intensity inhomogeneities
+
+> master -m 08 -s amb01 -n A
+
+<CHECK-GEOM>
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [I] Skull extraction + cat12 
+
+> master -m 09 -s amb01 -n A
+
+cat12 not working for gla02... re-run setting 
+go in to call_bashhelper, change cat12 writing function so that...
+matlabbatch{1}.spm.tools.cat.estwrite.opts.biasreg = 0.001; % TRY AGAIN
+
+<CHECK-GEOM>
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [J] dura-nighres mask out the dura using nighres 
+
+> master -m 11 -s amb01 -n A 
+
+NEED NIGHRES -> did this in .bash_profile 
+# FOR NIGHRES
+# FOR NIGHRES
+export JCC_JDK="/packages/development/anaconda/3-8/envs/preproc" 
+export JAVA_HOME="${JCC_JDK}"
+
+<CHECK-GEOM>
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+
+# [L] MASKING: master -m 13: spinoza_masking
+
+> master -m 13 -s ctrl01 -n A
+
+<CHECK-GEOM>
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [M] freesurfer: 
+
+> master -m 14 -s amb01 -n A --sge -q long.q@jupiter 
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+
+# [N] fmriprep 
+
+> master -m 15 -s amb01 -n A --sge -q long.q@jupiter 

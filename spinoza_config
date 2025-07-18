@@ -39,7 +39,9 @@ export MRIQC_SIMG=/packages/singularity_containers/containers_bids-mriqc--23.0.1
 export FPREP_SIMG=/packages/singularity_containers/containers_bids-fmriprep--20.2.5.simg
 export FPREP_OUT_SPACES="fsnative func"
 export FPREP_BINDING="$(dirname ${DIR_PROJECTS})" # binding directory for singularity image
-export FS_LICENSE=${REPO_DIR}/misc/license.txt # this thing needs to be along the FPREP_BINDING path!
+# export FS_LICENSE=${REPO_DIR}/misc/license.txt # this thing needs to be along the FPREP_BINDING path!
+export FS_LICENSE=${DIR_PROJECTS}/${PROJECT}/code/license.txt
+
 export CIFTI="" # leave empty if you don't want cifti output
 export DO_SYN=0 # set to zero if you do not want additional syn-distortion correction
 export BOLD_T1W_INIT="register" # default = register; for partial FOV, set to 'header'
