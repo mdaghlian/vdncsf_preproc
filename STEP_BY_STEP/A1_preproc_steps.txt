@@ -8,7 +8,7 @@ See naming style in folders and follow it
 Any changes you make to names of PAR/REC files
 Also need to be done inside the par files 
 Do this with the following (replacing as necessary)
-find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/pRFLE/pRF/g'
+find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/ses-RE/ses-A/g'
 
 Also do renaming for anatomical files into a separate session
 ses-A (for anatomy)
@@ -45,7 +45,7 @@ Inspect the outputs
 - make sure T2w and T1w are aligned 
 - do the pymp2rage stage (gets T1w from inversions of mp2rage)
 
-> ./E_T2w_register_and_pymp2rage.sh -s amb01 -n A 
+> ./E_T2w_register_and_pymp2rage.sh -s amb02 -n A 
 
 * Note - sometimes the copying of geometry is not correct for anatomical files
 * At each stage marked <CHECK-GEOM> do the following
@@ -84,7 +84,7 @@ NOTE - may have to redo this properly with itk snap and editing later...  [--itk
 ------------------------------------------------------------
 ------------------------------------------------------------
 
-# [H] bias correction (denoised folder)
+# [H] BIAS bias correction (denoised folder)
 is applied to remove intensity inhomogeneities
 
 > master -m 08 -s amb01 -n A
@@ -123,7 +123,7 @@ export JAVA_HOME="${JCC_JDK}"
 ------------------------------------------------------------
 
 
-# [L] MASKING: master -m 13: spinoza_masking
+# [K] MASKING: master -m 13: spinoza_masking
 
 > master -m 13 -s ctrl01 -n A
 
@@ -132,14 +132,34 @@ export JAVA_HOME="${JCC_JDK}"
 ------------------------------------------------------------
 ------------------------------------------------------------
 
-# [M] freesurfer: 
+# [L] freesurfer: 
 
-> master -m 14 -s amb01 -n A --sge -q long.q@jupiter 
+> master -m 14 -s gla02 -n A --sge -q long.q@jupiter -j 2
 
 ------------------------------------------------------------
 ------------------------------------------------------------
 
+# [M] Neuropythy 
+
+> ./
+
+------------------------------------------------------------
+------------------------------------------------------------
 
 # [N] fmriprep 
 
-> master -m 15 -s amb01 -n A --sge -q long.q@jupiter 
+> master -m 15 -s gla03 --func -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -q long.q@jupiter 
+
+
+
+
+ call_fmriprep -s amb01 -m func -b /data1/projects/dumoulinlab/Lab_members/Marcus -r /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory -d /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives -w /data1/projects/dumoulinlab/Lab_members/Marcus/projects/logs/fmriprep/vdNCSF/BIDS_directory -c 1 Using config file: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json -x /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --clean
+
+
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+# [O] pybest 
+
+master -m 16 -s gla03 -n LE -t CSF,pRF

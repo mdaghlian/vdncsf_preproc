@@ -1,0 +1,17 @@
+{
+    "t1w": {
+        "datatype": "anat",
+        "session": "A",
+        "suffix": "T1w"
+    },
+    "bold": {
+        "datatype": "func",
+        "session": "LE,RE",
+        "suffix": "bold"
+    },
+    "fmap": {
+        "datatype": "fmap",
+        "session": "LE,RE",
+        "suffix": "epi"
+    }    
+}
