@@ -21,12 +21,12 @@ import nibabel as nb
 import os
 opj = os.path.join
 
-from amb_scripts.load_saved_info import *
-from dag_prf_utils.utils import *
+# from amb_scripts.load_saved_info import *
+from dpu_mini.utils import *
 
 
 # sub_list = ['sub-01', 'sub-02']
-sub_list = ['amb01', 'gla01', 'gla02', 'gla03', 'ctrl01']
+sub_list = ['amb01', 'amb02', 'gla01', 'gla02', 'gla03', 'ctrl01']
 fs_dir = '/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer'
 b14_dict = {
     1:  'V1',   2: 'V2',    3: 'V3',    4: 'hV4',

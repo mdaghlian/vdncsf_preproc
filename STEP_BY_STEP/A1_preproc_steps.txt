@@ -8,7 +8,7 @@ See naming style in folders and follow it
 Any changes you make to names of PAR/REC files
 Also need to be done inside the par files 
 Do this with the following (replacing as necessary)
-find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/ses-RE/ses-A/g'
+find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/CSFLE/CSF/g'
 
 Also do renaming for anatomical files into a separate session
 ses-A (for anatomy)
@@ -100,8 +100,10 @@ is applied to remove intensity inhomogeneities
 
 cat12 not working for gla02... re-run setting 
 go in to call_bashhelper, change cat12 writing function so that...
-matlabbatch{1}.spm.tools.cat.estwrite.opts.biasreg = 0.001; % TRY AGAIN
-
+```matlab
+% Changed from 0.01 to 0.001 (ultralight to medium)
+matlabbatch{1}.spm.tools.cat.estwrite.opts.biasreg = 0.001; 
+```
 <CHECK-GEOM>
 
 ------------------------------------------------------------
@@ -134,7 +136,7 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [L] freesurfer: 
 
-> master -m 14 -s gla02 -n A --sge -q long.q@jupiter -j 2
+> master -m 14 -s amb02 -n A --sge -q long.q@jupiter -j 2
 
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -148,7 +150,7 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [N] fmriprep 
 
-> master -m 15 -s gla03 --func -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -q long.q@jupiter 
+> master -m 15 -s gla02 --func -n RE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -q long.q@jupiter 
 
 
 
@@ -162,4 +164,4 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [O] pybest 
 
-master -m 16 -s gla03 -n LE -t CSF,pRF
+master -m 16 -s gla02 -n RE -t CSF,pRF
