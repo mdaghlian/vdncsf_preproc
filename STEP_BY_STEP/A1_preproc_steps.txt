@@ -8,7 +8,7 @@ See naming style in folders and follow it
 Any changes you make to names of PAR/REC files
 Also need to be done inside the par files 
 Do this with the following (replacing as necessary)
-find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/CSFLE/CSF/g'
+find . -type f -name "*.PAR" -print0 | xargs -0 sed -i 's/acq-mp2rage/mp2rage/g'
 
 Also do renaming for anatomical files into a separate session
 ses-A (for anatomy)
@@ -87,7 +87,7 @@ NOTE - may have to redo this properly with itk snap and editing later...  [--itk
 # [H] BIAS bias correction (denoised folder)
 is applied to remove intensity inhomogeneities
 
-> master -m 08 -s amb01 -n A
+> master -m 08 -s ctrl02 -n A
 
 <CHECK-GEOM>
 
@@ -96,7 +96,7 @@ is applied to remove intensity inhomogeneities
 
 # [I] Skull extraction + cat12 
 
-> master -m 09 -s amb01 -n A
+> master -m 09 -s ctrl02 -n A
 
 cat12 not working for gla02... re-run setting 
 go in to call_bashhelper, change cat12 writing function so that...
@@ -111,7 +111,7 @@ matlabbatch{1}.spm.tools.cat.estwrite.opts.biasreg = 0.001;
 
 # [J] dura-nighres mask out the dura using nighres 
 
-> master -m 11 -s amb01 -n A 
+> master -m 11 -s ctrl02 -n A 
 
 NEED NIGHRES -> did this in .bash_profile 
 # FOR NIGHRES
@@ -127,8 +127,9 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [K] MASKING: master -m 13: spinoza_masking
 
-> master -m 13 -s ctrl01 -n A
+> master -m 13 -s ctrl02 -n A
 
+# > gla02 - re run with -u 0.99
 <CHECK-GEOM>
 
 ------------------------------------------------------------
@@ -136,7 +137,7 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [L] freesurfer: 
 
-> master -m 14 -s amb02 -n A --sge -q long.q@jupiter -j 2
+> master -m 14 -s amb03 -n A --sge -q long.q@jupiter -j 12
 
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -150,7 +151,7 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [N] fmriprep 
 
-> master -m 15 -s gla02 --func -n RE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -q long.q@jupiter 
+> master -m 15 -s amb03 --func -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -j 4 -q long.q@jupiter --clean
 
 
 
@@ -164,4 +165,4 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [O] pybest 
 
-master -m 16 -s gla02 -n RE -t CSF,pRF
+master -m 16 -s ctrl02 -n LE -t CSF,pRF

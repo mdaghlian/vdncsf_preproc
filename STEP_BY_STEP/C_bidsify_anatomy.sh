@@ -34,7 +34,7 @@ echo "Starting file renaming process..."
 
 # Find files matching the pattern *_mp2rage* recursively in the current directory.
 # Using 'find' ensures we can handle files in subdirectories as well.
-find ${ANAT_IN_PATH} -type f -name "*_mp2rage*" | while read -r filepath; do
+find ${ANAT_IN_PATH} -type f -name "*mp2rage*" | while read -r filepath; do
     if [[ "$filepath" =~ \.PAR$ ]] || [[ "$filepath" =~ \.REC$ ]]; then
         echo "Skipping $filepath"
         continue # Skip to the next iteration of the loop

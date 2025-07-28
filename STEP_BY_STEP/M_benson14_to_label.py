@@ -23,17 +23,20 @@ opj = os.path.join
 
 # from amb_scripts.load_saved_info import *
 from dpu_mini.utils import *
+from dpu_mini.fs_tools import dag_load_nverts
 
 
 # sub_list = ['sub-01', 'sub-02']
-sub_list = ['amb01', 'amb02', 'gla01', 'gla02', 'gla03', 'ctrl01']
+sub_list = ['gla02',] # 'amb02', 'gla01', 'gla03', 'ctrl01']
 fs_dir = '/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer'
 b14_dict = {
     1:  'V1',   2: 'V2',    3: 'V3',    4: 'hV4',
     5: 'VO1',   6:  'VO2',  7: 'LO1',   8: 'LO2',
-    9: 'TO1',   10: 'TO2',  11: 'V3b',  12: 'V3a'}
+    9: 'TO1',   10: 'TO2',  11: 'V3b',  12: 'V3a',}
 
-for sub in sub_list:
+for subi in sub_list:
+    sub = f'sub-{subi}'
+    print(sub)
     label_dir = opj(fs_dir, sub, 'label')
     custom_label_dir = opj(fs_dir, sub, 'label', 'custom')
     if not os.path.exists(custom_label_dir):
@@ -68,3 +71,24 @@ for sub in sub_list:
                 filename=opj(custom_label_dir, this_roi_name),
                 txt=this_roi_txt, 
             )
+
+        # --- COMBINE ALL b14 ROIs INTO ONE 'b14_ALL' LABEL ------------------------
+
+        # reuse the same contents/val_int you already have
+        # find every vertex whose label index is one of your b14_dict keys
+        all_match = [i in b14_dict.keys() for i in val_int]
+        all_inds  = np.where(all_match)[0] + 2   # +2 to account for the header lines
+
+        # build the combined-label text
+        all_roi_txt  = roi_line1
+        all_roi_txt += f"{len(all_inds)}\n"
+        for i_line in all_inds:
+            all_roi_txt += contents[i_line]
+
+        # write out: e.g. 'lh.b14_ALL.label' or 'rh.b14_ALL.label'
+        all_roi_name = f"{hemi}.b14_ALL.label"
+        dag_str2file(
+            filename=opj(custom_label_dir, all_roi_name),
+            txt=all_roi_txt,
+        )
+        print(all_roi_name)
