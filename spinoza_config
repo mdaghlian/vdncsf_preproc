@@ -14,8 +14,8 @@ export SEARCH_ANATOMICALS=("T2w" "FLAIR" "T1w")
 export PE_DIR_BOLD="AP"
 
 # GRID ENGINE
-export SGE_QUEUE_LONG="long.q@jupiter" # SGE_QUEUE_LONG="long" on SLURM
-export SGE_QUEUE_SHORT="short.q@jupiter" # SGE_QUEUE_LONG="long" on SLURM
+export SGE_QUEUE_LONG="long.q@zeus" # SGE_QUEUE_LONG="long" on SLURM
+export SGE_QUEUE_SHORT="short.q@zeus" # SGE_QUEUE_LONG="long" on SLURM
 
 # MATLAB
 ## Full installation

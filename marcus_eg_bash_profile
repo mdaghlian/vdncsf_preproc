@@ -1,0 +1,66 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+#conda activate bcoder2 
+
+# aliases
+alias SOU="source ~/.bash_profile"
+alias PROJ="cd ${DIR_DATA_HOME}"
+alias PROG="cd ${PATH_HOME}"
+alias VDEXP="cd /data1/projects/dumoulinlab/Lab_members/Marcus/programs/Experiments/vdncsf_protocol"
+
+# freesurfer
+export FREESURFER_HOME="/packages/freesurfer/7.3.2"
+export FS_LICENSE=$PATH_HOME/linescanning/misc/license.txt
+#export FS_LICENSE=$FREESURFER_HOME/license.txt
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+
+# fsl
+export PATH=${PATH}:/packages/fsl/6.0.7.11
+
+# ants
+export PATH=${PATH}:/packages/ANTs/20200131
+export PATH=${PATH}:/data1/projects/dumoulinlab/Lab_members/Marcus/programs/itksnap-3.8.0/bin
+
+# Itksnap
+module load itksnap/3.6.0-qt
+# Inserted via the DAG UTILS-repository
+source /data1/projects/dumoulinlab/Lab_members/Marcus/programs/dag_prf_utils/shell/dpu_setup
+
+export NB_SUBMIT="qsub -b y -j y -q cuda.q@jupiter -pe smp 1 -wd ${PWD} -N nb -o nb.txt "
+export MD_WEB_CTX=/data1/projects/dumoulinlab/Lab_members/marcus/programs/gitwebsite/ctx_files
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+
+
+# FOR NIGHRES
+export JCC_JDK="/packages/development/anaconda/3-8/envs/preproc" 
+export JAVA_HOME="${JCC_JDK}"
+
+# >>> fMRIproc initialize >>>
+export CONFIG_FILE="/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/spinoza_config"
+export REPO_DIR="/home/daghlian/.conda/envs/fmriproc_001/lib/python3.11/site-packages/fmriproc"
+export BIN_DIR="/home/daghlian/.conda/envs/fmriproc_001/bin"
+export SETUP_FILE="/home/daghlian/.conda/envs/fmriproc_001/bin/spinoza_setup"
+
+module load fsl/6.0.7.15 
+module load mricrogl
+
+# source the project variables
+source "/home/daghlian/.conda/envs/fmriproc_001/bin/spinoza_setup"
+echo "ACTIVE PROJECT    $PROJECT"
+echo "ACTIVE ACQ FORMAT $DATA"
+
+# source helper functions
+source ${BIN_DIR}/call_bashhelper
+
+# also activates conda in a way that overwrite FSL's conda
+activate_conda fmriproc_001
+
+# <<< fMRIproc initialize <<<

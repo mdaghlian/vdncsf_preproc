@@ -5,6 +5,10 @@ https://github.com/mdaghlian/fmriproc
 
 conda create --prefix=~/.conda/envs/fmriproc_00X python=3.11
 
+# then to activate it run: 
+
+conda activate fmriproc_00X 
+
 [2] Pip install 
 
 pip install git+https://github.com/mdaghlian/fmriproc
@@ -12,10 +16,27 @@ pip install git+https://github.com/mdaghlian/fmriproc
 [3] Set up the config file 
 - see the spinoza_config file in this repo
 
+- When you have made sure all your paths are correct we can install with 
+
+# MAKE SURE THAT correct conda environment is active 
+
+check with `which python` should point to the correct place
+
+spinoza_install setup /path/to/spinoza_config
+
+# Check .bash_profile 
+- make sure paths are correct
+
+
+
 [4] Setting up SPM and CAT 12 
 - Tricky apparently
 - need to have access to an spm folder with cat12 in it
 - export SPM_PATH="/packages/matlab/toolbox/spm12" seems to do the trick (inside spinoza config)
+
+
+
+
 
 
 # fmriproc editing
