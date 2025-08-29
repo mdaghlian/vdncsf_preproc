@@ -1,0 +1,12 @@
+added bidsignore 
+
+
+code/*
+rawdata/*
+sourcedata/*
+also ses-A/
+
+
+# ****
+Experiment with different options? 
+down load the latest fmriprep
