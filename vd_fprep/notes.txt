@@ -1,10 +1,17 @@
 added bidsignore 
 
 
-code/*
-rawdata/*
-sourcedata/*
-also ses-A/
+/code/*
+/rawdata/*
+/sourcedata/*
+*.PAR
+*.REC
+**/ses-A/*
+
+
+New plan - add ses-A to .bidsignore
+add script to make the T1w & T2w in a new folder, ses-4fprep
+fix pepolar_
 
 
 # ****

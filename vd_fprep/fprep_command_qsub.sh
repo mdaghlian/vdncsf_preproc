@@ -1,0 +1,1 @@
+qsub -q long.q@zeus -pe smp 4 -wd $PWD -N fprepNEWctrl02 -o fprepNEWctrl02.txt fprep_command.sh
