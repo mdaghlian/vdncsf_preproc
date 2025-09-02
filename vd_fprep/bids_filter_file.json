@@ -1,0 +1,22 @@
+{
+  "t1w": {
+    "datatype": "anat",
+    "suffix": "T1w",
+    "session": "fprep"
+  },
+  "t2w": {
+    "datatype": "anat",
+    "suffix": "T2w",
+    "session": "fprep"
+  },
+  "bold": {
+    "datatype": "func",
+    "suffix": "bold",
+    "session": ["LE", "RE"],
+    "task": ["CSF", "pRF", "csf", "prf"]
+  },
+  "fmap": {
+    "datatype": "fmap",
+    "session": ["LE", "RE"]
+  }
+}

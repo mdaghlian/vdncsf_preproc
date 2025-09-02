@@ -13,6 +13,15 @@ New plan - add ses-A to .bidsignore
 add script to make the T1w & T2w in a new folder, ses-4fprep
 fix pepolar_
 
+NOTE - having a sub-ctrl04_bu2808 causes and error!
+need to put them in backup 
+error is something like 
+mutiple entries for wf_ for task or something 
+
+
+
+Also crash sometimes caused by fsaverage not being there... 
+
 
 # ****
 Experiment with different options? 

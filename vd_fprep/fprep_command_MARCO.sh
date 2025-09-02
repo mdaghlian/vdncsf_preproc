@@ -9,10 +9,10 @@ bids_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_dir
 deriv_dir=$bids_dir/derivatives
 
 # Where we put the workflow
-wf_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/wf_fmriprep_new_BIDS_FILT_FSYN12REG
+wf_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/wf_fmriprep_OLDFPREP_BIDS_FILT_FSYN12REG
 
 # Outputs...
-fprep_out="$deriv_dir/fprep_new_BIDSFILT_FSYN12REG"
+fprep_out="$deriv_dir/fprep_OLDFPREP_BIDS_FILT_FSYN12REG"
 # rm -rf "$wf_dir"
 # rm -rf "$fprep_out"
 if [ ! -d "$wf_dir" ]; then
@@ -94,8 +94,9 @@ done
 
 
 # ******************** RUN FMRIPREP ***************************
-fprep_ver=$bids_dir/code/fmriprep-latest.sif
+# fprep_ver=$bids_dir/code/fmriprep-latest.sif
 # fprep_ver=$bids_dir/code/fmriprep-24.0.0.sif
+fprep_ver=$bids_dir/code/fmriprep-20.2.7.sif
 # fprep_ver=/packages/singularity_containers/containers_bids-fmriprep--20.2.5.simg
 singularity run --cleanenv \
   -B $bids_dir:/data \
@@ -109,15 +110,13 @@ singularity run --cleanenv \
   --fs-license-file /license.txt \
   --fs-subjects-dir /fs \
   --output-spaces T1w fsnative fsaverage func \
-  --bold2anat-init t2w \
-  --verbose \
+  --bold2t1w-init register --bold2t1w-dof 12 --use-syn-sdc \
   --md-only-boilerplate --stop-on-first-crash --nthreads 8 \
   --work-dir /wf \
   --verbose \
   --omp-nthreads 8 \
-  --bold2anat-dof 12 \
   --skip-bids-validation  \
-  --bids-filter-file /data/code/vdncsf_preproc/vd_fprep/bids_filter_file.json \    
+  --bids-filter-file /data/code/vdncsf_preproc/vd_fprep/bids_filter_file.json    
   
   #--force syn-sdc --use-syn-sdc \
 

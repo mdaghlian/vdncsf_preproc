@@ -1,2 +1,5 @@
 fmriprep is making very dodgy alignment
 
+**/ses-A/*
+**/ses-RE/*
+/budata/*

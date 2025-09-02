@@ -1,1 +1,4 @@
 *.vscode
+z_*
+*.e*
+vd_fprep/logs/*

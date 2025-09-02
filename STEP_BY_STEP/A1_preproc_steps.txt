@@ -65,7 +65,7 @@ Inspect the outputs
 # [F] ANTs-MNI registration 
 for MNI image; which helps with making a really good mask
 
-> master -m 05b -s ctrl03 -n A --itk
+> master -m 05b -s ctrl03 -n A --ow --itk
 
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -76,7 +76,7 @@ use outputs of F to create a mask
 Notes - originally the idea was to use the T1w/T2w ratio
 JH - now recommends using T2w only... But 
 
-> master -m 07 -s gla05 -n A --itk --ow
+> master -m 07 -s ctrl03 -n A --itk --ow
 
 NOTE - may have to redo this properly with itk snap and editing later...  [--itk]
 
@@ -88,7 +88,7 @@ NOTE - may have to redo this properly with itk snap and editing later...  [--itk
 # [H] BIAS bias correction (denoised folder)
 is applied to remove intensity inhomogeneities
 
-> master -m 08 -s gla05 -n A
+> master -m 08 -s ctrl03 -n A
 
 <CHECK-GEOM>
 
@@ -97,7 +97,7 @@ is applied to remove intensity inhomogeneities
 
 # [I] Skull extraction + cat12 
 
-> master -m 09 -s gla05 -n A
+> master -m 09 -s ctrl03 -n A
 
 cat12 not working for gla02... re-run setting 
 go in to call_bashhelper, change cat12 writing function so that...
@@ -112,7 +112,7 @@ matlabbatch{1}.spm.tools.cat.estwrite.opts.biasreg = 0.001;
 
 # [J] dura-nighres mask out the dura using nighres 
 
-> master -m 11 -s gla05 -n A 
+> master -m 11 -s ctrl03 -n A 
 
 NEED NIGHRES -> did this in .bash_profile 
 # FOR NIGHRES
@@ -128,7 +128,7 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [K] MASKING: master -m 13: spinoza_masking
 
-> master -m 13 -s gla05 -n A --itk -u 0.99 --itk 
+> master -m 13 -s ctrl03 -n A --itk -u 0.99 --itk 
 
 # > gla02 - re run with -u 0.99
 # > & amb03
@@ -139,7 +139,7 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [L] freesurfer: 
 
-> master -m 14 -s gla05 -n A --sge -q long.q@zeus -j 2
+> master -m 14 -s ctrl03 -n A --sge -q long.q@zeus -j 2
 
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -153,9 +153,9 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [N] fmriprep 
 
-> master -m 15 -s ctrl05 --func -n LE -t pRF -x /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -j 4 -q long.q@zeus --clean --ow
+> master -m 15 -s ctrl04 --func -n LE --clean --ow -t pRF -x /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -j 4 -q long.q@zeus --clean --ow
 
-master -m 15 -s ctrl04 --func -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json  --clean --ow
+master -m 15 -s ctrl02 --func -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json  --clean --ow
 master -m 15 -s ctrl04 --warp-only -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json
 
  call_fmriprep -s amb01 -m func -b /data1/projects/dumoulinlab/Lab_members/Marcus -r /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory -d /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives -w /data1/projects/dumoulinlab/Lab_members/Marcus/projects/logs/fmriprep/vdNCSF/BIDS_directory -c 1 Using config file: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json -x /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --clean

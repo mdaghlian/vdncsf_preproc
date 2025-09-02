@@ -1,5 +1,5 @@
 #!/bin/bash
-
+VDNCSF_DIR=
 singularity run --cleanenv \
   -B /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory:/data \
   -B /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/newfprep:/out \
