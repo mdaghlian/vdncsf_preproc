@@ -128,7 +128,7 @@ export JAVA_HOME="${JCC_JDK}"
 
 # [K] MASKING: master -m 13: spinoza_masking
 
-> master -m 13 -s ctrl03 -n A --itk -u 0.99 --itk 
+> master -m 13 -s ctrl03 -n A --itk -u 0.99 --ow --itk 
 
 # > gla02 - re run with -u 0.99
 # > & amb03
@@ -167,4 +167,4 @@ master -m 15 -s ctrl04 --warp-only -n LE -u /data1/projects/dumoulinlab/Lab_memb
 
 # [O] pybest 
 
-master -m 16 -s gla04 -n LE -t CSF,pRF
+master -m 16 -s ctrl04 -n RE -t CSF,pRF

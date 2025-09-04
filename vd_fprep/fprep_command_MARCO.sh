@@ -12,7 +12,7 @@ deriv_dir=$bids_dir/derivatives
 wf_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/wf_fmriprep_OLDFPREP_BIDS_FILT_FSYN12REG
 
 # Outputs...
-fprep_out="$deriv_dir/fprep_OLDFPREP_BIDS_FILT_FSYN12REG"
+fprep_out="$deriv_dir"
 # rm -rf "$wf_dir"
 # rm -rf "$fprep_out"
 if [ ! -d "$wf_dir" ]; then

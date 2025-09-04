@@ -93,7 +93,7 @@ for ses in ses-LE ses-RE; do
             bref=$(find "$al_dir" -type f -name "*${ses}*${task}*run-${run}*T1w_boldref.nii.gz" | head -n 1)
             bmask=$(find "$al_dir" -type f -name "*ses-${ses}*run-${run}*T1w_desc-brain_mask.nii.gz" | head -n 1)
             
-            breg_file=$(basename "$bold")/${ses}_${task}_${run}_REG
+            breg_file=$(dirname "$bold")/${ses}_${task}_${run}_REG
             echo Running for $(basename "$bold")             
             call_antsregistration ${T1w} ${bref} ${breg_file} -x ${bmask} -j 5 --affine --verbose --itk
             exit 0
