@@ -120,6 +120,10 @@ NEED NIGHRES -> did this in .bash_profile
 export JCC_JDK="/packages/development/anaconda/3-8/envs/preproc" 
 export JAVA_HOME="${JCC_JDK}"
 
+Then need to git clone nighres
+./build.sh
+pip install -e . 
+
 <CHECK-GEOM>
 
 ------------------------------------------------------------
@@ -145,20 +149,26 @@ export JAVA_HOME="${JCC_JDK}"
 ------------------------------------------------------------
 
 # [M] Neuropythy 
-
-> ./
+> run to get the benson atlas stuff
 
 ------------------------------------------------------------
 ------------------------------------------------------------
 
 # [N] fmriprep 
 
-> master -m 15 -s ctrl04 --func -n LE --clean --ow -t pRF -x /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --sge -j 4 -q long.q@zeus --clean --ow
+-> originally using fmriprep as called by jurjen; now doing it my own way
+-> now using my own call to fmriprep as Marco did for psilocybin projects
+-> What is different? 
+* fmriprep version (20.2.7)
+* --bold2t1w-dof 12 --use-syn-sdc
 
-master -m 15 -s ctrl02 --func -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json  --clean --ow
-master -m 15 -s ctrl04 --warp-only -n LE -u /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json
+What you need to do:
+* download the "image" for the fmriprep version
+Run below whereever you want to download the image
+> singularity build fmriprep-20.2.7.sif docker://nipreps/fmriprep:20.2.7
 
- call_fmriprep -s amb01 -m func -b /data1/projects/dumoulinlab/Lab_members/Marcus -r /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory -d /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives -w /data1/projects/dumoulinlab/Lab_members/Marcus/projects/logs/fmriprep/vdNCSF/BIDS_directory -c 1 Using config file: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json -x /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/code/vdncsf_preproc/STEP_BY_STEP/F_fmriprep_config.json --clean
+* Change the paths in N_fmriprep.sh 
+* Submit the specific subjects you want to do with N_fmriprep_submit.sh
 
 
 
@@ -167,4 +177,4 @@ master -m 15 -s ctrl04 --warp-only -n LE -u /data1/projects/dumoulinlab/Lab_memb
 
 # [O] pybest 
 
-master -m 16 -s ctrl04 -n RE -t CSF,pRF
+master -m 16 -s gla03 -n LE -t CSF,pRF

@@ -9,7 +9,7 @@ bids_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_dir
 deriv_dir=$bids_dir/derivatives
 
 # Where we put the workflow
-wf_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/wf_fmriprep_OLDFPREP_BIDS_FILT_FSYN12REG
+wf_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/wf_fmriprep_OLDFPREP_BIDS_FILT_FSYN12REGGL3
 
 # Outputs...
 fprep_out="$deriv_dir"
@@ -51,46 +51,46 @@ fi
 # exit 1
 
 
-# # ****** FIX EPIS ******
-# Loop through both LE and RE sessions
-for session in "LE" "RE"; do
-    # Define the path to the current session's functional data
-    ses_path="${bids_dir}/sub-${sub}/ses-${session}"
+# # # ****** FIX EPIS ******
+# # Loop through both LE and RE sessions
+# for session in "LE" "RE"; do
+#     # Define the path to the current session's functional data
+#     ses_path="${bids_dir}/sub-${sub}/ses-${session}"
 
-    # Check if the session directory exists
-    if [ -d "$ses_path" ]; then
-        echo "Processing session: ${session}"
+#     # Check if the session directory exists
+#     if [ -d "$ses_path" ]; then
+#         echo "Processing session: ${session}"
 
-        # Find all JSON sidecar files in the session's functional directory and process them
-        find "$ses_path" -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
-            # Create a temporary file to avoid issues with in-place modification
-            temp_file=$(mktemp)
+#         # Find all JSON sidecar files in the session's functional directory and process them
+#         find "$ses_path" -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
+#             # Create a temporary file to avoid issues with in-place modification
+#             temp_file=$(mktemp)
 
-            # --- Update B0FieldIdentifier ---
-            # Extract task and run from the filename to create a unique ID
-            if [[ $(basename "$file") =~ ses-([a-zA-Z0-9]+)_task-([a-zA-Z0-9]+)_run-([0-9]+) ]]; then
-                new_b0_id="topup_ses-${BASH_REMATCH[1]}_task-${BASH_REMATCH[2]}_run-${BASH_REMATCH[3]}"
-                jq --arg id "$new_b0_id" '.B0FieldIdentifier = $id' "$file" > "$temp_file" && mv "$temp_file" "$file"
-            fi
+#             # --- Update B0FieldIdentifier ---
+#             # Extract task and run from the filename to create a unique ID
+#             if [[ $(basename "$file") =~ ses-([a-zA-Z0-9]+)_task-([a-zA-Z0-9]+)_run-([0-9]+) ]]; then
+#                 new_b0_id="topup_ses-${BASH_REMATCH[1]}_task-${BASH_REMATCH[2]}_run-${BASH_REMATCH[3]}"
+#                 jq --arg id "$new_b0_id" '.B0FieldIdentifier = $id' "$file" > "$temp_file" && mv "$temp_file" "$file"
+#             fi
 
-            # --- Remove unwanted keys ---
-            # Define keys to delete -> delete from all json files
-            keys_to_delete=".B0FieldSource"
+#             # --- Remove unwanted keys ---
+#             # Define keys to delete -> delete from all json files
+#             keys_to_delete=".B0FieldSource"
 
-            # For bold files, also remove IntendedFor and B0FieldIdentifier
-            if [[ "$file" == *"_bold.json" ]]; then
-                keys_to_delete+=", .IntendedFor, .B0FieldIdentifier"
-            fi
+#             # For bold files, also remove IntendedFor and B0FieldIdentifier
+#             if [[ "$file" == *"_bold.json" ]]; then
+#                 keys_to_delete+=", .IntendedFor, .B0FieldIdentifier"
+#             fi
 
-            # Use a single jq command to remove all specified keys
-            jq "del($keys_to_delete)" "$file" > "$temp_file" && mv "$temp_file" "$file"
+#             # Use a single jq command to remove all specified keys
+#             jq "del($keys_to_delete)" "$file" > "$temp_file" && mv "$temp_file" "$file"
 
-            echo "Cleaned up: $file"
-        done
-    else
-        echo "Session directory not found: ${ses_path}"
-    fi
-done
+#             echo "Cleaned up: $file"
+#         done
+#     else
+#         echo "Session directory not found: ${ses_path}"
+#     fi
+# done
 
 
 # ******************** RUN FMRIPREP ***************************
@@ -116,7 +116,10 @@ singularity run --cleanenv \
   --verbose \
   --omp-nthreads 8 \
   --skip-bids-validation  \
-  --bids-filter-file /data/code/vdncsf_preproc/vd_fprep/bids_filter_file.json    
+  --bids-filter-file /data/code/vdncsf_preproc/vd_fprep/bids_filter_file.json \
+  # --fs-no-reconall
+  # --fs-no-resume 
+
   
   #--force syn-sdc --use-syn-sdc \
 
