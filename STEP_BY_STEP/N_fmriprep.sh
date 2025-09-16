@@ -11,10 +11,10 @@ deriv_dir=$bids_dir/derivatives
 
 # Where we put the workflow (must be outside of bids dir)
 # ***** CHANGE THIS PATH *******
-wf_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/wf_fmriprep
+wf_dir=/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/wf_fmriprep_mini
 
 # Outputs...
-fprep_out="$deriv_dir"
+fprep_out="$deriv_dir/fprepmini"
 if [ ! -d "$wf_dir" ]; then
   mkdir -p "$wf_dir"
 fi
@@ -71,4 +71,28 @@ singularity run --cleanenv \
   --verbose \
   --omp-nthreads 8 \
   --skip-bids-validation  \
-  --bids-filter-file /data/code/vdncsf_preproc/STEP_BY_STEP/N_bids_filter_file.json
+  --bids-filter-file /data/code/vdncsf_preproc/STEP_BY_STEP/N_bids_filter_file.json  
+
+
+# # NEWER FMRIPREP
+# singularity run --cleanenv \
+#   -B $bids_dir:/data \
+#   -B $fprep_out:/out \
+#   -B $deriv_dir/freesurfer:/fs \
+#   -B $bids_dir/code/license.txt:/license.txt \
+#   -B $wf_dir:/wf \
+#   $fprep_ver \
+#   /data /out participant \
+#   --participant-label $sub \
+#   --fs-license-file /license.txt \
+#   --fs-subjects-dir /fs \
+#   --output-spaces T1w fsnative fsaverage func \
+#   --bold2anat-init t2w \
+#   --verbose \
+#   --md-only-boilerplate --stop-on-first-crash --nthreads 8 \
+#   --work-dir /wf \
+#   --verbose \
+#   --omp-nthreads 8 \
+#   --bold2anat-dof 12 \
+#   --skip-bids-validation  \
+#   --bids-filter-file /data/code/vdncsf_preproc/vd_fprep/bids_filter_file.json --level minimal
