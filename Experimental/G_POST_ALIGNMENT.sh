@@ -4,7 +4,7 @@
 
 # Initialize a variable to store the subject ID
 SUBJECT_ID=""
-FPREP_ID=""
+FPREP_ID="fmriprep"
 # Parse arguments
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -41,40 +41,61 @@ fi
 mkdir -p "$ALIGN_DIR/anat"
 src_file=$(find "$FPREP_DIR/ses-fprep/anat" -type f -name "*desc-preproc_T1w.nii.gz" | head -n 1)
 cp -n "$src_file" "$ALIGN_DIR/anat/"
+
+# [2] Copy the T1w brain mask
+src_file=$(find "$FPREP_DIR/ses-fprep/anat" -type f -name "*desc-brain_mask.nii.gz" | head -n 1)
+cp -n "$src_file" "$ALIGN_DIR/anat/"
+
 # -> also the T1w -> fsnative transform
 src_file=$(find "$FPREP_DIR/ses-fprep/anat" -type f -name "*from-T1w_to-fsnative_mode-image_xfm.txt" | head -n 1)
 cp -n "$src_file" "$ALIGN_DIR/anat/"
 # IMPORTANT FILES
-T1w=$(find "$ALIGN_DIR/anat" -type f -name "*T1w*.nii.gz")
+T1w=$(find "$ALIGN_DIR/anat" -type f -name "*preproc_T1w.nii.gz")
+T1w_mask=$(find "$ALIGN_DIR/anat" -type f -name "*brain_mask*.nii.gz")
 T1w_to_orig=$(find "$ALIGN_DIR/anat" -type f -name "*T1w*xfm")
+# Make the masked T1w
+fslmaths $T1w -mas $T1w_mask ${T1w%.nii.gz}_brain.nii.gz
+# exit 1
+T1w=${T1w%.nii.gz}_brain.nii.gz
 
 
-# [2] Functional - boldref 
-for ses in ses-LE ses-RE; do
+# [2] Functional - boldref, bold, brain mask (not aligned) 
+for ses in ses-LE; do # ses-RE; do
     src_dir="$FPREP_DIR/$ses/func"
     dest_dir="$ALIGN_DIR/$ses"
     if [ -d "$src_dir" ]; then
         mkdir -p "$dest_dir"
         # BOLD 
-        find "$src_dir" -type f -name "*T1w_desc-preproc_bold.nii.gz" | while read -r bold_file; do
+        find "$src_dir" -type f -name "*desc-preproc_bold.nii.gz" | while read -r bold_file; do
             cp -n "$bold_file" "$dest_dir/"
         done
         # BOLD ref
-        find "$src_dir" -type f -name "*T1w_boldref.nii.gz" | while read -r bold_file; do
+        find "$src_dir" -type f -name "*desc-boldref_bold.nii.gz" | while read -r bold_file; do
             cp -n "$bold_file" "$dest_dir/"
         done
         # brain mask
-        find "$src_dir" -type f -name "*T1w_desc-brain_mask.nii.gz" | while read -r bold_file; do
+        find "$src_dir" -type f -name "*desc-brain_mask.nii.gz" | while read -r bold_file; do
             cp -n "$bold_file" "$dest_dir/"
-        done                
+        done
+        # bold ref 
+        find "$src_dir" -type f -name "*desc-boldref.nii.gz" | while read -r bold_file; do
+            cp -n "$bold_file" "$dest_dir/"
+        done
     fi
 done
+
+
+
+
+
+
+
 # ***** COPYING DONE 
 echo FINISHED COPYING.... 
 echo
 echo
 
-
+exit 1
 # *** Now use call_antsregistration 
 
 for ses in ses-LE ses-RE; do

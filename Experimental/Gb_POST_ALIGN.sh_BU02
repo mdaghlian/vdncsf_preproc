@@ -1,0 +1,242 @@
+#!/usr/bin/env bash
+# afni_align_fmriprep_to_t1.sh
+#
+# Take motion+SDC corrected outputs from fMRIPrep and perform a final
+# EPI -> T1w registration using AFNI. The script copies relevant files
+# from the fmriprep derivatives folder to a working ALIGN_DIR and runs
+# AFNI's align_epi_anat.py + 3dAllineate to apply the transform to the
+# full 4D BOLD. Outputs are saved in ALIGN_DIR and per-session subfolders.
+#
+# Requirements:
+#  - AFNI installed and in PATH (3dTstat, 3dAutomask, align_epi_anat.py, 3dAllineate)
+#  - FSL installed (fslmaths used to create a masked T1 if needed)
+#  - Environment variables DIR_DATA_DERIV and SUBJECTS_DIR should be set,
+#    or edit those variables in the script before running.
+#
+# Usage:
+#   DIR_DATA_DERIV=/path/to/derivatives SUBJECTS_DIR=/path/to/freesurfer ./afni_align_fmriprep_to_t1.sh --sub sub-01 [--fprep fmriprep]
+#
+set -euo pipefail
+IFS=$'\n\t'
+
+# ---------------------- User-configurable defaults -----------------------
+FPREP_ID="fmriprep"
+SESSIONS=(ses-LE)  # modify/add sessions you want to process, e.g. (ses-LE ses-RE)
+# ------------------------------------------------------------------------
+
+# ---------------------- Parse arguments ---------------------------------
+SUBJECT_ID=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --sub)
+      SUBJECT_ID="$2"
+      shift 2
+      ;;
+    --fprep)
+      FPREP_ID="$2"
+      shift 2
+      ;;      
+    *)
+      echo "Unknown option: $1"
+      exit 1
+      ;;
+  esac
+done
+
+if [[ -z "$SUBJECT_ID" ]]; then
+  echo "ERROR: --sub <subject_id> is required (e.g. --sub sub-01 or --sub 01)"
+  exit 1
+fi
+
+# normalize subject id: remove leading 'sub-' if present, then add it back
+SUBJECT_ID=${SUBJECT_ID/sub-/}
+SUBJECT_ID="sub-${SUBJECT_ID}"
+
+# Check required environment variables
+: "${DIR_DATA_DERIV:?Please set DIR_DATA_DERIV environment variable to your derivatives dir (BIDS derivatives).}"
+: "${SUBJECTS_DIR:?Please set SUBJECTS_DIR environment variable (Freesurfer SUBJECTS_DIR) if needed.}"
+
+FPREP_DIR="$DIR_DATA_DERIV/$FPREP_ID/$SUBJECT_ID"
+ALIGN_DIR="$DIR_DATA_DERIV/${FPREP_ID}_ALIGN/$SUBJECT_ID"
+rm -rf "$ALIGN_DIR"
+mkdir -p "$ALIGN_DIR"
+
+# ---------------------- copy anatomies from fmriprep ---------------------
+mkdir -p "$ALIGN_DIR/anat"
+
+echo "Searching for T1w preproc and brainmask in: $FPREP_DIR/ses-fprep/anat"
+T1_SRC=$(find "$FPREP_DIR/ses-fprep/anat" -type f -name "*desc-preproc_T1w.nii.gz" | head -n 1 || true)
+T1_MASK_SRC=$(find "$FPREP_DIR/ses-fprep/anat" -type f -name "*desc-brain_mask.nii.gz" | head -n 1 || true)
+T1_TO_FS_XFM=$(find "$FPREP_DIR/ses-fprep/anat" -type f -name "*from-T1w_to-fsnative_mode-image_xfm.txt" | head -n 1 || true)
+
+if [[ -z "$T1_SRC" ]]; then
+  echo "ERROR: could not find T1w preproc in $FPREP_DIR/ses-fprep/anat"
+  exit 1
+fi
+
+# Copy files (use -n to avoid overwriting existing)
+cp -n "$T1_SRC" "$ALIGN_DIR/anat/"
+if [[ -n "$T1_MASK_SRC" ]]; then
+  cp -n "$T1_MASK_SRC" "$ALIGN_DIR/anat/"
+fi
+if [[ -n "$T1_TO_FS_XFM" ]]; then
+  cp -n "$T1_TO_FS_XFM" "$ALIGN_DIR/anat/"
+fi
+
+# Set variables pointing to the copied files
+T1w=$(find "$ALIGN_DIR/anat" -type f -name "*preproc_T1w.nii.gz" | head -n 1)
+T1w_mask=$(find "$ALIGN_DIR/anat" -type f -name "*brain_mask*.nii.gz" | head -n 1 || true)
+
+# If fmriprep didn't provide a skullstripped T1 (unlikely), create one using fslmaths + mask
+if [[ -n "$T1w" && -n "$T1w_mask" ]]; then
+  echo "Creating masked T1w file (T1w_brain)..."
+  fslmaths "$T1w" -mas "$T1w_mask" "${T1w%.nii.gz}_brain.nii.gz"
+  T1w="${T1w%.nii.gz}_brain.nii.gz"
+else
+  if [[ -z "$T1w" ]]; then
+    echo "ERROR: T1w not found in $ALIGN_DIR/anat"
+    exit 1
+  fi
+  echo "Warning: T1 brain mask not found. Using T1 as-is for registration (align_epi_anat.py -anat_has_skull yes)."
+fi
+3dWarp -deoblique -prefix "${T1w%.nii.gz}_deob.nii.gz" "$T1w" || { echo "3dWarp -deoblique failed for T1"; exit 1; }
+rm -f "$T1w"
+T1w="${T1w%.nii.gz}_deob.nii.gz"
+# Check AFNI tools exist
+for exe in 3dTstat 3dAutomask align_epi_anat.py 3dAllineate; do
+    command -v "$exe" >/dev/null 2>&1 || { echo "ERROR: $exe not found in PATH. Please install AFNI and ensure it's available."; exit 1; }
+done
+
+# ---------------------- Process sessions & runs -------------------------
+for ses in "${SESSIONS[@]}"; do
+  src_dir="$FPREP_DIR/$ses/func"
+  dest_dir="$ALIGN_DIR/$ses"
+  if [[ ! -d "$src_dir" ]]; then
+    echo "Skipping session $ses: source directory not found: $src_dir"
+    continue
+  fi
+  mkdir -p "$dest_dir"
+
+  # Copy relevant func files (preproc BOLD, boldref, brain_mask, desc-boldref)
+  echo "Copying functional files for $ses..."
+  # Copy only preproc BOLD and related files BUT exclude files that have already been resampled/aligned (they include a 'space-' tag in the filename)
+find "$src_dir" -type f -name "*desc-preproc_bold.nii.gz" -not -name "*space-*" -exec cp -n {} "$dest_dir/" \;
+find "$src_dir" -type f -name "*desc-boldref_bold.nii.gz" -not -name "*space-*" -exec cp -n {} "$dest_dir/" \;
+find "$src_dir" -type f -name "*desc-brain_mask.nii.gz" -not -name "*space-*" -exec cp -n {} "$dest_dir/" \;
+find "$src_dir" -type f -name "*desc-boldref.nii.gz" -not -name "*space-*" -exec cp -n {} "$dest_dir/" \;
+
+  # Iterate over preproc BOLD files in dest_dir
+  for BOLD in $(find "$dest_dir" -maxdepth 1 -type f -name "*desc-preproc_bold.nii.gz"); do
+    echo "\n---- Processing BOLD: $BOLD ----"
+    base=$(basename "$BOLD" .nii.gz)
+    run_outdir="$dest_dir/${base}_ALIGN"
+    mkdir -p "$run_outdir"
+
+    # Find the corresponding boldref / brain mask (priority: explicit files copied; fallback: compute)
+    BOLDREF=$(find "$dest_dir" -maxdepth 1 -type f -name "${base/desc-preproc/desc-boldref}*" -print -quit || true)
+    if [[ -z "$BOLDREF" ]]; then
+      # look for any boldref in the session
+      BOLDREF=$(find "$dest_dir" -maxdepth 1 -type f -name "*desc-boldref_bold.nii.gz" -print -quit || true)
+    fi
+
+    BOLD_MASK=$(find "$dest_dir" -maxdepth 1 -type f -name "*desc-brain_mask.nii.gz" -print -quit || true)
+
+    # Make mean EPI (3dTstat)
+    echo "Making mean EPI..."
+    mean_epi="$run_outdir/${base}_mean.nii.gz"
+    3dTstat -prefix "$mean_epi" -mean "$BOLD"
+
+    # Make EPI mask: prefer provided BOLD_MASK, else compute from mean
+    if [[ -n "$BOLD_MASK" ]]; then
+      echo "Using provided BOLD brain mask: $BOLD_MASK"
+      cp -n "$BOLD_MASK" "$run_outdir/"
+      mean_epi_mask="$run_outdir/$(basename "$BOLD_MASK")"
+    else
+      echo "Computing EPI mask from mean EPI..."
+      mean_epi_mask="$run_outdir/${base}_mean_mask.nii.gz"
+      3dAutomask -clfrac 0.5 -apply_prefix "$mean_epi_mask" "$mean_epi" || { echo "3dAutomask failed; removing mask"; rm -f "$mean_epi_mask"; }
+    fi
+
+    # Run align_epi_anat.py (mean EPI -> T1)
+    echo "Running align_epi_anat.py: mean EPI -> T1..."
+    pushd "$run_outdir" >/dev/null
+
+  echo "Deobliquing mean EPI and full BOLD (3dWarp -deoblique)..."
+  3dWarp -deoblique -prefix "${mean_epi%.nii.gz}_deob.nii.gz" "$mean_epi" || echo "3dWarp -deoblique failed for mean"
+  mean_epi="${mean_epi%.nii.gz}_deob.nii.gz"
+  rm -f "$mean_epi"
+  3dWarp -deoblique -prefix "${BOLD%.nii.gz}_deob.nii.gz" "$BOLD" || echo "3dWarp -deoblique failed for BOLD"
+  rm -f "$BOLD"
+  BOLD="${BOLD%.nii.gz}_deob.nii.gz"
+  if [[ -n "$mean_epi_mask" && -f "$mean_epi_mask" ]]; then
+    3dWarp -deoblique -prefix "${mean_epi_mask%.nii.gz}_deob.nii.gz" "$mean_epi_mask" || true
+    rm -f "$mean_epi_mask"
+    mean_epi_mask="${mean_epi_mask%.nii.gz}_deob.nii.gz"
+  fi
+
+
+    # Build the command with appropriate -anat_has_skull option
+    if [[ -n "$T1w_mask" ]]; then
+      anat_has_skull="no"
+    else
+      anat_has_skull="yes"
+    fi
+    echo HELOOOOOOOOOOOOOO
+    align_epi_anat.py \
+      -anat "$T1w" \
+      -anat_has_skull "no" \
+      -epi "$mean_epi" \
+      -epi_base 0 \
+      -epi2anat \
+      -cost lpc+ZZ \
+      -suffix _al \
+      -giant_move \
+      -volreg off \
+ || { echo "align_epi_anat.py failed for $mean_epi"; popd >/dev/null; continue; }
+    exit 1
+    # find the produced 1D affine matrix (there may be multiple; pick the most recent matching pattern)
+    MAT_FILE=$(ls -t *mat*aff12.1D 2>/dev/null | head -n 1 || true)
+    if [[ -z "$MAT_FILE" ]]; then
+      MAT_FILE=$(ls -t *al.mat*.1D 2>/dev/null | head -n 1 || true)
+    fi
+    if [[ -z "$MAT_FILE" ]]; then
+      echo "WARNING: could not find an affine 1D matrix produced by align_epi_anat.py in $run_outdir. Skipping applying transform."
+      popd >/dev/null
+      continue
+    fi
+    echo "Found matrix: $MAT_FILE"
+
+    # Apply matrix to full 4D BOLD -> produce BOLD in T1 space
+    OUT_BOLD_IN_T1="$run_outdir/${base}_in-T1w.nii.gz"
+    echo "Applying transform to full BOLD -> $OUT_BOLD_IN_T1"
+    3dAllineate \
+      -base "$T1w" \
+      -input "$BOLD" \
+      -1Dmatrix_apply "$MAT_FILE" \
+      -master "$T1w" \
+      -prefix "$OUT_BOLD_IN_T1" \
+      -final wsinc5 \
+ || { echo "3dAllineate failed for $BOLD"; popd >/dev/null; continue; }
+
+    # Also transform the mean EPI for QC
+    3dAllineate -base "$T1w" -input "$mean_epi" -1Dmatrix_apply "$MAT_FILE" -master "$T1w" -prefix mean_epi_in_T1.nii.gz -final wsinc5
+
+    # Copy matrix and mean to top-level align dir for convenience
+    cp -n "$MAT_FILE" "$ALIGN_DIR/"
+    cp -n "mean_epi_in_T1.nii.gz" "$ALIGN_DIR/"
+
+    popd >/dev/null
+
+    echo "Finished alignment for $BOLD. Outputs in: $run_outdir"
+    echo "  - Affine matrix: $run_outdir/$(basename "$MAT_FILE")"
+    echo "  - BOLD in T1 space: $run_outdir/$(basename "$OUT_BOLD_IN_T1")"
+    echo "  - mean_epi_in_T1: $run_outdir/mean_epi_in_T1.nii.gz"
+  done
+done
+
+# ---------------------- Final messages / QC tips -------------------------
+echo "\nALL DONE."
+echo "Key outputs are placed under: $ALIGN_DIR"
+echo "For QC, launch AFNI and load the masked T1 + mean_epi_in_T1.nii.gz to visually inspect the alignment:\n\n  afni $T1w $ALIGN_DIR/*/*_ALIGN/*mean_epi_in_T1.nii.gz &\n\n"
+echo "If you want the inverse transform (T1 -> EPI) or to resample the T1 to EPI space instead,
+I can modify the script to produce that as well (or create an afni_proc.py pipeline)."
