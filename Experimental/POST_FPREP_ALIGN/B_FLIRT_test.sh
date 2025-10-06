@@ -19,6 +19,9 @@ DOF_ANAT=12
 FPREP_ID="fmriprep"
 VALID_DOFS=(6 7 9 12)
 SESSIONS=(ses-LE ses-RE)
+TARGET="T1w"
+FPREP_START="bold" # T1w
+FOUT_ID=""
 
 # Function to check if a value is in an array
 contains_element () {
@@ -41,6 +44,12 @@ while [[ $# -gt 0 ]]; do
             DOF_ANAT="$2"; shift 2;;
         --fprep_id)
             FPREP_ID="$2"; shift 2;;
+        --fprep_start)
+            FPREP_START="$2"; shift 2;;     
+        --fout_id)
+            FOUT_ID="$2"; shift 2;;           
+        --target)
+            TARGET="$2"; shift 2;;                             
         *)
             echo "ERROR: Unknown option: $1"; exit 1;;
     esac
@@ -49,10 +58,8 @@ done
 # Normalize subject ID
 SUBJECT_ID=${SUBJECT_ID/sub-/}
 SUBJECT_ID="sub-${SUBJECT_ID}"
-
 # CALL THE COPY SCRIPT
-source ./A_COPY_FILES.sh --sub $SUBJECT_ID --deriv_dir $DERIV_DIR --fprep_id $FPREP_ID
-
+source ./A_COPY_FILES.sh --sub $SUBJECT_ID --deriv_dir $DERIV_DIR --fprep_id $FPREP_ID --fprep_start $FPREP_START
 # Print summary
 echo "--- FLIRT Alignment Script Configuration ---"
 echo "Subject ID: $SUBJECT_ID"
@@ -80,19 +87,20 @@ echo "Reference BOLD (first run) chosen: $REF_BOLD_BASE"
 # ---------------------- 5. Step 1: Inter-Run Registration (BOLD mean → Reference mean) -----------------
 
 declare -A RUN2REF_MATRIX
-
+declare -A MCOREG_RUN2REF
 for bold_path in "${BOLD_FILES[@]}"; do
     base=$(basename "$bold_path" .nii.gz)
     id=${base%%.*}
     mean_path="${RUN_MEAN[$id]}"
     OUTPUT_MATRIX="$XFM_DIR/${base}_to_ref.mat"
     RUN2REF_MATRIX["$bold_path"]="$OUTPUT_MATRIX"
-    
+    TCOREG="$COREG_DIR/${base}_mean_in_ref.nii.gz"
+    MCOREG_RUN2REF["${id}"]="$TCOREG"
     # a. Reference Run (Identity Matrix)
     if [[ "$bold_path" == "$REF_BOLD" ]]; then
         if [[ ! -f "$OUTPUT_MATRIX" ]]; then
             echo "Reference run: creating identity matrix: $OUTPUT_MATRIX"
-            cp $REF_MEAN $COREG_DIR/${base}_mean_in_ref.nii.gz
+            cp $REF_MEAN $TCOREG
             cat > "$OUTPUT_MATRIX" <<'EOF'
 1 0 0 0
 0 1 0 0
@@ -116,20 +124,42 @@ EOF
 
 done
 
+# ---- CREATE GRAN MEAN
+GRAND_MEAN="$COREG_DIR/A_GRAND_MEAN.nii.gz"
+for bold_path in "${BOLD_FILES[@]}"; do
+    base=$(basename "$bold_path" .nii.gz)
+    id=${base%%.*}
+    TCOREG="${MCOREG_RUN2REF[$id]}"
+
+    if [ id==REF_ID ]; then
+        cp $TCOREG $GRAND_MEAN
+        continue
+    fi 
+
+    fslmaths $TCOREG -add $GRAND_MEAN $GRAND_MEAN    
+done
+
+
 # ---------------------- 6. Step 2: Functional-to-Anatomical Registration (Reference mean → T1w) -----------------
 
-COREG_ANAT_DIR="$TALIGN_DIR/coreg_ref${DOF_VOL}_an${DOF_ANAT}"
-XFM_TOTAL_DIR="$TALIGN_DIR/xfm${DOF_VOL}_an${DOF_ANAT}"
+COREG_ANAT_DIR="$TALIGN_DIR/coreg_ref${DOF_VOL}_an${TARGET}${DOF_ANAT}"
+XFM_TOTAL_DIR="$TALIGN_DIR/xfm${DOF_VOL}_an${TARGET}${DOF_ANAT}"
 mkdir -p "${COREG_ANAT_DIR}" "${XFM_TOTAL_DIR}"
-REF2ANAT_MATRIX="$TALIGN_DIR/${REF_ID}_an${DOF_ANAT}_to_T1w.mat"
-REF2ANAT_OUT="$COREG_ANAT_DIR/${REF_ID}_mean_in_T1w.nii.gz"
+
+if [ "$TARGET" = "T1w" ]; then    
+    TARGET_PATH=${T1W_MASKED}    
+else
+    TARGET_PATH=${T2W_MASKED}
+fi
+
+REF2ANAT_MATRIX="$TALIGN_DIR/${REF_ID}_an${DOF_ANAT}_to_${TARGET}.mat"
+REF2ANAT_OUT="$COREG_ANAT_DIR/${REF_ID}_mean_in_${TARGET}.nii.gz"
 
 if [[ ! -f "$REF2ANAT_MATRIX" ]]; then
-    echo "FLIRT (Moving: Reference mean -> Fixed: T1w anatomical, DOF=$DOF_ANAT)"
+    echo "FLIRT (Moving: Reference mean -> Fixed: ${TARGET_PATH} anatomical, DOF=$DOF_ANAT)"
     # Use a robust cost function like Normalized Mutual Information for cross-modal registration
     # flirt -in <moving> -ref <fixed> -out <transformed> -omat <matrix> -dof <dof> -cost normmi
-    flirt -in "$REF_MEAN" -ref "$T1W_MASKED" -out "$REF2ANAT_OUT" \
-          -omat "$REF2ANAT_MATRIX" -dof 6 -cost normmi -interp trilinear
+    flirt -in "$REF_MEAN" -ref "$TARGET_PATH" -out "$REF2ANAT_OUT" -omat "$REF2ANAT_MATRIX" -dof "${DOF_ANAT}" -cost normmi -interp trilinear
 else
     echo "Found existing ref->anat matrix: $REF2ANAT_MATRIX. Skipping FLIRT."
 fi
@@ -143,11 +173,49 @@ for bold_path in "${BOLD_FILES[@]}"; do
     # Transformation matrices
     XFM_I_TO_REF="${RUN2REF_MATRIX[$bold_path]}"         # XFMi→ref
     XFM_REF_TO_ANAT="$REF2ANAT_MATRIX"                  # XFMref→anat
-    XFM_TOTAL="$XFM_TOTAL_DIR/${base}_to_T1w_total.mat"       # XFMtotal
-    XFM_TOTAL_ITK="$XFM_TOTAL_DIR/${base}_to_T1w_total_itk.txt"       # XFMtotal
+    XFM_TOTAL="$XFM_TOTAL_DIR/${base}_to_${TARGET}_total.mat"       # XFMtotal
+    XFM_TOTAL_ITK="$XFM_TOTAL_DIR/${base}_to_${TARGET}_total_itk.txt"       # XFMtotal
 
     # Output file path
-    R_I_T1W="$COREG_ANAT_DIR/${base}_FLIRT_T1w_MEAN.nii.gz"
+    R_I_TARGET="$COREG_ANAT_DIR/${base}_FLIRT_${TARGET}_MEAN.nii.gz"
+
+    # a. Calculate the concatenated transform: XFMtotal = XFMref→anat * XFMi→ref
+    if [[ ! -f "$XFM_TOTAL" || ! -f "$XFM_TOTAL_ITK" ]]; then
+        echo "Composing total transform for $base: XFMtotal = XFMref→anat * XFMi→ref"
+        # convert_xfm -omat <output> -concat <pre-transform> <post-transform> (FSL convention is post-concat)
+        convert_xfm -omat "$XFM_TOTAL" -concat "$XFM_REF_TO_ANAT" "$XFM_I_TO_REF"
+        # echo c3d_affine_tool "$XFM_TOTAL" -ref $T1W_MASK_REF -src $bold_path -fsl2ras -oitk "$XFM_TOTAL_ITK"
+        # exit 1
+    else
+        echo "Found existing total transform: $XFM_TOTAL. Skipping concatenation."
+    fi
+    
+    if [[ ! -f "$R_I_TARGET" ]]; then
+        echo "Applying total transform to 4D BOLD: $bold_path -> $R_I_TARGET"
+        # flirt -in <input 4D> -ref <target T1w> -out <output 4D> -applyxfm -init <total matrix> -interp trilinear
+        flirt -in "$mean_path" -ref "$TARGET_PATH" -out "$R_I_TARGET" \
+              -applyxfm -init "$XFM_TOTAL" -interp trilinear
+    else
+        echo "Final resliced BOLD already exists: $R_I_TARGET. Skipping application."
+    fi
+
+done
+
+# ---------------------- 7. Step 3: Transformation Application -----------------------------------------
+
+echo "--- Applying Concatenated Transforms to 4D BOLD Runs ---"
+# exit 1 
+for bold_path in "${BOLD_FILES[@]}"; do
+    base=$(basename "$bold_path" .nii.gz)
+    
+    # Transformation matrices
+    XFM_I_TO_REF="${RUN2REF_MATRIX[$bold_path]}"         # XFMi→ref
+    XFM_REF_TO_ANAT="$REF2ANAT_MATRIX"                  # XFMref→anat
+    XFM_TOTAL="$XFM_TOTAL_DIR/${base}_to_${TARGET}_total.mat"       # XFMtotal
+    XFM_TOTAL_ITK="$XFM_TOTAL_DIR/${base}_to_${TARGET}_total_itk.txt"       # XFMtotal
+
+    # Output file path
+    R_I_TARGET="$COREG_ANAT_DIR/${base}_FLIRT_${TARGET}.nii.gz"
 
     # a. Calculate the concatenated transform: XFMtotal = XFMref→anat * XFMi→ref
     if [[ ! -f "$XFM_TOTAL" || ! -f "$XFM_TOTAL_ITK" ]]; then
@@ -161,53 +229,13 @@ for bold_path in "${BOLD_FILES[@]}"; do
     fi
 
     # b. Apply the total transform to the 4D BOLD run
-    if [[ ! -f "$R_I_T1W" ]]; then
-        echo "Applying total transform to 4D BOLD: $bold_path -> $R_I_T1W"
+    if [[ ! -f "$R_I_TARGET" ]]; then
+        echo "Applying total transform to 4D BOLD: $bold_path -> $R_I_TARGET"
         # flirt -in <input 4D> -ref <target T1w> -out <output 4D> -applyxfm -init <total matrix> -interp trilinear
-        flirt -in "$mean_path" -ref "$T1W_MASKED" -out "$R_I_T1W" \
+        flirt -in "$bold_path" -ref "$TARGET_PATH" -out "$R_I_TARGET" \
               -applyxfm -init "$XFM_TOTAL" -interp trilinear
     else
-        echo "Final resliced BOLD already exists: $R_I_T1W. Skipping application."
-    fi
-
-done
-
-exit 1
-# ---------------------- 7. Step 3: Transformation Application -----------------------------------------
-
-echo "--- Applying Concatenated Transforms to 4D BOLD Runs ---"
-# exit 1 
-for bold_path in "${BOLD_FILES[@]}"; do
-    base=$(basename "$bold_path" .nii.gz)
-    
-    # Transformation matrices
-    XFM_I_TO_REF="${RUN2REF_MATRIX[$bold_path]}"         # XFMi→ref
-    XFM_REF_TO_ANAT="$REF2ANAT_MATRIX"                  # XFMref→anat
-    XFM_TOTAL="$XFM_TOTAL_DIR/${base}_to_T1w_total.mat"       # XFMtotal
-    XFM_TOTAL_ITK="$XFM_TOTAL_DIR/${base}_to_T1w_total_itk.txt"       # XFMtotal
-
-    # Output file path
-    R_I_T1W="$COREG_ANAT_DIR/${base}_FLIRT_T1w.nii.gz"
-
-    # a. Calculate the concatenated transform: XFMtotal = XFMref→anat * XFMi→ref
-    if [[ ! -f "$XFM_TOTAL" || ! -f "$XFM_TOTAL_ITK" ]]; then
-        echo "Composing total transform for $base: XFMtotal = XFMref→anat * XFMi→ref"
-        # convert_xfm -omat <output> -concat <pre-transform> <post-transform> (FSL convention is post-concat)
-        convert_xfm -omat "$XFM_TOTAL" -concat "$XFM_REF_TO_ANAT" "$XFM_I_TO_REF"
-        echo c3d_affine_tool "$XFM_TOTAL" -ref $T1W_MASK_REF -src $bold_path -fsl2ras -oitk "$XFM_TOTAL_ITK"
-        exit 1
-    else
-        echo "Found existing total transform: $XFM_TOTAL. Skipping concatenation."
-    fi
-
-    # b. Apply the total transform to the 4D BOLD run
-    if [[ ! -f "$R_I_T1W" ]]; then
-        echo "Applying total transform to 4D BOLD: $bold_path -> $R_I_T1W"
-        # flirt -in <input 4D> -ref <target T1w> -out <output 4D> -applyxfm -init <total matrix> -interp trilinear
-        flirt -in "$bold_path" -ref "$T1W_MASKED" -out "$R_I_T1W" \
-              -applyxfm -init "$XFM_TOTAL" -interp trilinear
-    else
-        echo "Final resliced BOLD already exists: $R_I_T1W. Skipping application."
+        echo "Final resliced BOLD already exists: $R_I_TARGET. Skipping application."
     fi
 
 done

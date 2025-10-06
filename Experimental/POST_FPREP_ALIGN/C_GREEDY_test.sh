@@ -25,6 +25,8 @@ DOF_ANAT=12
 FPREP_ID="fmriprep"
 VALID_DOFS=(6 7 9 12)
 SESSIONS=(ses-LE ses-RE)
+FPREP_START="bold" # T1w
+FOUT_ID=""
 
 # Function to check if a value is in an array
 contains_element () {
@@ -43,6 +45,10 @@ while [[ $# -gt 0 ]]; do
             DERIV_DIR="$2"; shift 2;;
         --fprep_id)
             FPREP_ID="$2"; shift 2;;
+        --fprep_start)
+            FPREP_START="$2"; shift 2;;     
+        --fout_id)
+            FOUT_ID="$2"; shift 2;;                 
         *)
             echo "ERROR: Unknown option: $1"; exit 1;;
     esac

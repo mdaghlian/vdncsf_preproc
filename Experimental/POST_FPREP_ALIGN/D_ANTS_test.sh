@@ -20,6 +20,8 @@ REG_ANAT="rigid+affine+syn"  # options: rigid+affine, affine+syn, rigid+affine+s
 FPREP_ID="fmriprep"
 PRESET="precise"             # options: fast, medium, precise
 MEANS_ONLY=0                 # if 1, run the mean-only (QC) stage and exit
+FPREP_START="bold" # T1w
+FOUT_ID=""
 
 usage(){
     cat <<EOF
@@ -52,6 +54,10 @@ while [[ $# -gt 0 ]]; do
             FPREP_ID="$2"; shift 2;;
         --means_only|--qc_only)
             MEANS_ONLY=1; shift 1;;
+        --fprep_start)
+            FPREP_START="$2"; shift 2;;     
+        --fout_id)
+            FOUT_ID="$2"; shift 2;;                 
         -*)
             echo "ERROR: Unknown option: $1"; usage;;
         *)
@@ -190,8 +196,9 @@ for bold_path in "${BOLD_FILES[@]}"; do
     fi
 
     echo "Running antsRegistration for run->ref: ${PREFIX}"
+    break
     antsRegistration "${ARGS[@]}"
-    exit 1
+    
     echo "Finished antsRegistration for $base"
 
 done
@@ -251,7 +258,7 @@ else
     antsRegistration "${ARGS[@]}"
     echo "Finished REF->T1w registration"
 fi
-
+exit 1
 # ---------------- Compose transforms and apply to MEAN images (Quick QC) ------------------------
 
 echo "--- Composing transforms and applying to MEAN images (quick QC) ---"
