@@ -14,7 +14,7 @@ IFS=$'\n\t'
 SUBJECT_ID=""
 DERIV_DIR=$DIR_DATA_DERIV
 SRC_DIR=$DIR_DATA_SOURCE
-DOF_VOL=6
+DOF_VOL=12
 DOF_ANAT=12
 FPREP_ID="fmriprep"
 VALID_DOFS=(6 7 9 12)
@@ -56,10 +56,12 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Normalize subject ID
-SUBJECT_ID=${SUBJECT_ID/sub-/}
-SUBJECT_ID="sub-${SUBJECT_ID}"
+SUBJECT=${SUBJECT_ID/sub-/}
+SUBJECT_ID="sub-${SUBJECT}"
 # CALL THE COPY SCRIPT
+# source ${PWD}/../A_COPY_FILES.sh --sub $SUBJECT_ID --deriv_dir $DERIV_DIR --fprep_id $FPREP_ID --fprep_start $FPREP_START
 source ./A_COPY_FILES.sh --sub $SUBJECT_ID --deriv_dir $DERIV_DIR --fprep_id $FPREP_ID --fprep_start $FPREP_START
+
 # Print summary
 echo "--- FLIRT Alignment Script Configuration ---"
 echo "Subject ID: $SUBJECT_ID"
@@ -201,10 +203,110 @@ for bold_path in "${BOLD_FILES[@]}"; do
 
 done
 
-# ---------------------- 7. Step 3: Transformation Application -----------------------------------------
+# ---------------------- 7. Step 3: Transformation TO FSNATIVE -----------------------------------------
+for bold_path in "${BOLD_FILES[@]}"; do
+    base=$(basename "$bold_path" .nii.gz)
+    id=${base%%_desc*}
+    XFM_TOTAL="$XFM_TOTAL_DIR/${base}_to_${TARGET}_total.mat"       # XFMtotal    
+    LTA_TOTAL="$XFM_TOTAL_DIR/${base}_to_${TARGET}_total.lta"       # XFMtotal    
+    
+    # Now project BOLD directly to surface (no intermediate flirt)
+    # We'll use projfrac-avg sampling across cortical ribbon as a common default.
+    for hemi in lh rh; do
+        if [ "${hemi}" = "lh" ]; then
+            hemi_str="L"
+        else
+            hemi_str="R"
+        fi
+        lta_convert --infsl "$XFM_TOTAL" --outlta "$LTA_TOTAL" --src "$bold_path" --trg "$T1W_MASKED"
+        out_name="${id}_space-fsnative_hemi-${hemi_str}_bold.func.gii"
+        if [[ "${id}" == *ses-LE* ]]; then
+            ses="ses-LE"
+        else    
+            ses="ses-RE"
+        fi
 
+        out="${COREG_ANAT_DIR}/${out_name}"
+        echo "Running mri_vol2surf for ${hemi} -> ${out}"
+        if [ ! -f "${out}" ]; then
+            mri_vol2surf --cortex --hemi $hemi \
+                --interp trilinear --o $out \
+                --srcsubject $SUBJECT_ID \
+                --reg $LTA_TOTAL \
+                --projfrac-avg 0.000 1.000 0.200 \
+                --mov $bold_path --trgsubject $SUBJECT_ID
+        fi
+        echo INJECTING INTO FPREP
+
+        tfprep="${FPREP_OUTFS}/${ses}/func/${out_name}"
+        cp -n ${out} ${tfprep}        
+
+    done
+done
+
+# PYBEST 
+PYB_OUT="${DIR_DATA_DERIV}/pybest_fsinject"
+if [[ ! -d "$PYB_OUT" ]]; then
+    mkdir $PYB_OUT
+fi
+
+for tses in "${SESSIONS[@]}"; do
+    ses=${tses/ses-/}
+    src_dir="$FPREP_IN_DIR/$tses/func"    
+    if [[ ! -d "$src_dir" ]]; then
+        echo "Skipping session $ses: source directory not found: $src_dir"
+        continue
+    fi
+    
+    call_pybest -s $SUBJECT -n $ses -o ${PYB_OUT} -c 1 -p 20 -t pRF,CSF -f $DERIV_DIR/${FPREP_ID}_fsinject -r fsnative
+
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ---------------------- 7. Step 3: Transformation Application -----------------------------------------
 echo "--- Applying Concatenated Transforms to 4D BOLD Runs ---"
-# exit 1 
+exit 1 
 for bold_path in "${BOLD_FILES[@]}"; do
     base=$(basename "$bold_path" .nii.gz)
     

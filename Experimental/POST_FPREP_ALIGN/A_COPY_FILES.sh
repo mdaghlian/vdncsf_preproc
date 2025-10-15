@@ -57,6 +57,11 @@ echo "------------------------------------------"
 # ---------------------- 2. Directory Setup ---------------------------------------
 
 FPREP_IN_DIR="$DERIV_DIR/$FPREP_ID/$SUBJECT_ID"
+FPREP_OUTFS="$DERIV_DIR/${FPREP_ID}_fsinject/$SUBJECT_ID"
+if [ ! -d "${FPREP_OUTFS}" ]; then
+    mkdir -p ${FPREP_OUTFS}
+fi
+
 SRC_IN_DIR="$SRC_DIR/$SUBJECT_ID"
 if [[ ! -d "$FPREP_IN_DIR" ]]; then
     echo "ERROR: fMRIPrep input directory not found: $FPREP_IN_DIR"; exit 1
@@ -125,15 +130,15 @@ if [ ! -f "$WM_MASK_REF" ]; then
 fi
 
 # (Additional stages like T1W_MASKED generation would go here)
-T2W_ANAT_SRC="${DIR_DATA_DERIV}/freesurfer/${SUBJECT_ID}/mri/T2.mgz"
-T2W_ANAT_REF="$ANAT_DIR/T2w_preproc.nii.gz"
-T2W_MASKED="$ANAT_DIR/T2w_preproc_masked.nii.gz"
-T2W_MASKED_mgz="${ALIGN_OUT_DIR}/anat/T2_masked.mgz"
-if [ ! -f "$T2W_MASKED" ]; then   
-    mri_mask ${T2W_ANAT_SRC} ${T1W_MASK_SRC} ${T2W_MASKED_mgz}
-    mri_convert --in_type mgz --out_type nii ${T2W_MASKED_mgz} ${T2W_MASKED}
-    rm -rf $T2W_MASKED_mgz
-fi
+# T2W_ANAT_SRC="${DIR_DATA_DERIV}/freesurfer/${SUBJECT_ID}/mri/T2.mgz"
+# T2W_ANAT_REF="$ANAT_DIR/T2w_preproc.nii.gz"
+# T2W_MASKED="$ANAT_DIR/T2w_preproc_masked.nii.gz"
+# T2W_MASKED_mgz="${ALIGN_OUT_DIR}/anat/T2_masked.mgz"
+# if [ ! -f "$T2W_MASKED" ]; then   
+#     mri_mask ${T2W_ANAT_SRC} ${T1W_MASK_SRC} ${T2W_MASKED_mgz}
+#     mri_convert --in_type mgz --out_type nii ${T2W_MASKED_mgz} ${T2W_MASKED}
+#     rm -rf $T2W_MASKED_mgz
+# fi
 
 # ---------------------- 4. Functional File Discovery -----------------------------
 for ses in "${SESSIONS[@]}"; do
@@ -160,6 +165,24 @@ for ses in "${SESSIONS[@]}"; do
             \( -name "*space-T1w_desc-brain_mask.nii.gz"  \) \
             -exec cp -n {} "$ALIGN_OUT_DIR/func/" \;        
     fi
+done
+
+# ALSO -> copy over func only files
+# ---------------------- 4. Functional File Discovery -----------------------------
+for ses in "${SESSIONS[@]}"; do
+    src_dir="$FPREP_IN_DIR/$ses/func"    
+    trg_dir="$FPREP_OUTFS/$ses/"
+    if [[ ! -d "$src_dir" ]]; then
+        echo "Skipping session $ses: source directory not found: $src_dir"
+        continue
+    fi
+    if [[ ! -d "$FPREP_OUTFS/$ses" ]]; then
+        mkdir -p "$FPREP_OUTFS/$ses"
+    fi
+    rsync -av --exclude '*space-T1w*' --exclude '*space-fsaverage*'\
+        --exclude '*func.gii' --exclude '*.nii.gz' \
+        ${src_dir} ${trg_dir}
+
 done
 
 mapfile -t BOLD_FILES < <(find "$ALIGN_OUT_DIR/func" -maxdepth 1 -type f -name "*desc-preproc_bold.nii.gz" | sort)

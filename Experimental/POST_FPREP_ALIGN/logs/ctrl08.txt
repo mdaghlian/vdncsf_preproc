@@ -1,0 +1,18 @@
+Subject ID: sub-ctrl08
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+ERROR: fMRIPrep input directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl08
+Subject ID: sub-ctrl08
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+ERROR: fMRIPrep input directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl08
+Subject ID: sub-ctrl08
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+ERROR: fMRIPrep input directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl08

@@ -196,7 +196,6 @@ for bold_path in "${BOLD_FILES[@]}"; do
     fi
 
     echo "Running antsRegistration for run->ref: ${PREFIX}"
-    break
     antsRegistration "${ARGS[@]}"
     
     echo "Finished antsRegistration for $base"

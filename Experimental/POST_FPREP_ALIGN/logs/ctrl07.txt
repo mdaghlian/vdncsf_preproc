@@ -1,0 +1,1567 @@
+Subject ID: sub-ctrl07
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+Copying FreeSurfer anatomical and brainmask volumes...
+mri_convert /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/mri/orig.mgz /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc.nii.gz 
+reading from /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/mri/orig.mgz...
+TR=0.00, TE=0.00, TI=0.00, flip angle=0.00
+i_ras = (-1, 0, -9.96968e-18)
+j_ras = (-9.96968e-18, 4.28194e-08, -1)
+k_ras = (0, 1, 4.28194e-08)
+writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc.nii.gz...
+mri_convert /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/mri/brainmask.mgz /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_mask.nii.gz 
+reading from /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/mri/brainmask.mgz...
+TR=0.00, TE=0.00, TI=0.00, flip angle=0.00
+i_ras = (-1, 0, -9.96968e-18)
+j_ras = (-9.96968e-18, 4.28194e-08, -1)
+k_ras = (0, 1, 4.28194e-08)
+writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_mask.nii.gz...
+DoAbs = 0
+maskval=0, outval=0
+Writing masked volume to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz...done.
+Generating binarized white matter mask: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_wm_mask.nii.gz
+mri_convert /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/mri/wm.mgz /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_wm_mask.nii.gz 
+reading from /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/mri/wm.mgz...
+TR=0.00, TE=0.00, TI=0.00, flip angle=0.00
+i_ras = (-1, 0, -9.96968e-18)
+j_ras = (-9.96968e-18, 4.28194e-08, -1)
+k_ras = (0, 1, 4.28194e-08)
+writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_wm_mask.nii.gz...
+White matter mask generated successfully and saved as /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_wm_mask.nii.gz
+Copying functional files for ses-LE...
+Skipping session ses-RE: source directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl07/ses-RE/func
+sending incremental file list
+func/
+func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-1_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-1_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-2_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-2_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-3_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-3_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-4_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-4_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-5_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-5_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-6_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-6_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-7_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-7_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-pRF_run-1_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-pRF_run-1_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-R_bold.json
+func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-brain_mask.json
+func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-confounds_timeseries.json
+func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-confounds_timeseries.tsv
+func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold.json
+func/sub-ctrl07_ses-LE_task-pRF_run-2_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-pRF_run-2_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-L_bold.json
+func/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-R_bold.json
+
+sent 6,268,719 bytes  received 1,388 bytes  171,783.75 bytes/sec
+total size is 6,260,417  speedup is 1.00
+Skipping session ses-RE: source directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl07/ses-RE/func
+Computing mean for sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold.nii.gz
+--- FLIRT Alignment Script Configuration ---
+Subject ID: sub-ctrl07
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+DOF (Vol-to-Ref): 12 (Inter-run alignment)
+DOF (Ref-to-Anat): 12 (Functional-to-anatomical alignment)
+------------------------------------------
+Reference BOLD (first run) chosen: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+Reference run: creating identity matrix: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm_ref12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_ref.mat
+FLIRT (Moving: sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_mean -> Reference: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz_mean, DOF=12)
+FLIRT (Moving: Reference mean -> Fixed: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz anatomical, DOF=12)
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Composing total transform for sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Applying total transform to 4D BOLD: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold.nii.gz -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+Subject ID: sub-ctrl07
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+Copying functional files for ses-LE...
+Skipping session ses-RE: source directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl07/ses-RE/func
+sending incremental file list
+
+sent 3,743 bytes  received 17 bytes  7,520.00 bytes/sec
+total size is 6,260,417  speedup is 1,665.00
+Skipping session ses-RE: source directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl07/ses-RE/func
+--- FLIRT Alignment Script Configuration ---
+Subject ID: sub-ctrl07
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+DOF (Vol-to-Ref): 12 (Inter-run alignment)
+DOF (Ref-to-Anat): 12 (Functional-to-anatomical alignment)
+------------------------------------------
+Reference BOLD (first run) chosen: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold. Skipping FLIRT.
+Found existing ref->anat matrix: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_an12_to_T1w.mat. Skipping FLIRT.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+Subject ID: sub-ctrl07
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+Copying functional files for ses-LE...
+Skipping session ses-RE: source directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl07/ses-RE/func
+sending incremental file list
+
+sent 3,743 bytes  received 17 bytes  7,520.00 bytes/sec
+total size is 6,260,417  speedup is 1,665.00
+Skipping session ses-RE: source directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl07/ses-RE/func
+--- FLIRT Alignment Script Configuration ---
+Subject ID: sub-ctrl07
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+DOF (Vol-to-Ref): 12 (Inter-run alignment)
+DOF (Ref-to-Anat): 12 (Functional-to-anatomical alignment)
+------------------------------------------
+Reference BOLD (first run) chosen: sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold. Skipping FLIRT.
+Found existing run->ref matrix for sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold. Skipping FLIRT.
+Found existing ref->anat matrix: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_an12_to_T1w.mat. Skipping FLIRT.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+Composing total transform for sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold: XFMtotal = XFMref→anat * XFMi→ref
+Final resliced BOLD already exists: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_FLIRT_T1w_MEAN.nii.gz. Skipping application.
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01951   0.03212  -0.00383  -1.82567;
+-0.03316   0.99344  -0.10096   3.11869;
+-0.00021   0.09725   0.99608  -21.65576;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97983   0.03174  -0.00055  -0.81341;
+-0.01424  -0.44320   0.89402  -45.86969;
+-0.02926  -0.89687  -0.44621  -13.92916;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 34019
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01951   0.03212  -0.00383  -1.82567;
+-0.03316   0.99344  -0.10096   3.11869;
+-0.00021   0.09725   0.99608  -21.65576;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97983   0.03174  -0.00055  -0.81341;
+-0.01424  -0.44320   0.89402  -45.86969;
+-0.02926  -0.89687  -0.44621  -13.92916;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33201
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01966   0.03438  -0.00173  -1.80299;
+-0.03539   0.99267  -0.09366   2.87182;
+-0.00188   0.09403   0.99664  -21.82855;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97954   0.03379   0.00148  -0.77877;
+-0.01365  -0.44091   0.89702  -45.81723;
+-0.03202  -0.89948  -0.43957  -14.21880;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 34071
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01966   0.03438  -0.00173  -1.80299;
+-0.03539   0.99267  -0.09366   2.87182;
+-0.00188   0.09403   0.99664  -21.82855;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97954   0.03379   0.00148  -0.77877;
+-0.01365  -0.44091   0.89702  -45.81723;
+-0.03202  -0.89948  -0.43957  -14.21880;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33258
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01924   0.03273   0.00179  -1.69533;
+-0.03454   0.99399  -0.09315   2.91952;
+-0.00558   0.09345   0.99846  -21.65322;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98002   0.03182   0.00473  -0.67019;
+-0.01001  -0.43983   0.89575  -45.94856;
+-0.03285  -0.89870  -0.43814  -14.09403;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33998
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01924   0.03273   0.00179  -1.69533;
+-0.03454   0.99399  -0.09315   2.91952;
+-0.00558   0.09345   0.99846  -21.65322;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98002   0.03182   0.00473  -0.67019;
+-0.01001  -0.43983   0.89575  -45.94856;
+-0.03285  -0.89870  -0.43814  -14.09403;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33148
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01851   0.03375  -0.00153  -1.68868;
+-0.03487   0.99492  -0.09266   3.06809;
+-0.00329   0.09126   0.99654  -20.70640;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98069   0.03312   0.00157  -0.67673;
+-0.01208  -0.43756   0.89787  -46.73291;
+-0.03218  -0.89877  -0.43865  -13.54483;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33672
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01851   0.03375  -0.00153  -1.68868;
+-0.03487   0.99492  -0.09266   3.06809;
+-0.00329   0.09126   0.99654  -20.70640;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98069   0.03312   0.00157  -0.67673;
+-0.01208  -0.43756   0.89787  -46.73291;
+-0.03218  -0.89877  -0.43865  -13.54483;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33089
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01869   0.03106  -0.00483  -1.81570;
+-0.03252   0.99470  -0.09347   2.90252;
+ 0.00009   0.09360   0.99853  -21.28118;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98067   0.03080  -0.00186  -0.79990;
+-0.01411  -0.43951   0.89549  -46.29774;
+-0.02863  -0.89815  -0.43854  -13.94372;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33862
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01869   0.03106  -0.00483  -1.81570;
+-0.03252   0.99470  -0.09347   2.90252;
+ 0.00009   0.09360   0.99853  -21.28118;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98067   0.03080  -0.00186  -0.79990;
+-0.01411  -0.43951   0.89549  -46.29774;
+-0.02863  -0.89815  -0.43854  -13.94372;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33106
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01912   0.03417  -0.00524  -1.69420;
+-0.03553   0.99361  -0.09117   3.00860;
+ 0.00040   0.09279   0.99437  -21.89674;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98006   0.03389  -0.00206  -0.68475;
+-0.01568  -0.43961   0.90023  -45.69093;
+-0.03118  -0.89933  -0.43842  -14.11860;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 34200
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01912   0.03417  -0.00524  -1.69420;
+-0.03553   0.99361  -0.09117   3.00860;
+ 0.00040   0.09279   0.99437  -21.89674;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.98006   0.03389  -0.00206  -0.68475;
+-0.01568  -0.43961   0.90023  -45.69093;
+-0.03118  -0.89933  -0.43842  -14.11860;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33382
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01930   0.03433  -0.01141  -1.63641;
+-0.03575   0.99443  -0.09315   3.10378;
+ 0.00508   0.09312   0.99522  -21.67256;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97981   0.03457  -0.00799  -0.64136;
+-0.01988  -0.43923   0.89847  -45.85951;
+-0.02931  -0.89835  -0.43992  -13.93297;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 34194
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01930   0.03433  -0.01141  -1.63641;
+-0.03575   0.99443  -0.09315   3.10378;
+ 0.00508   0.09312   0.99522  -21.67256;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97981   0.03457  -0.00799  -0.64136;
+-0.01988  -0.43923   0.89847  -45.85951;
+-0.02931  -0.89835  -0.43992  -13.93297;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33226
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01942   0.03634  -0.00398  -1.69251;
+-0.03712   0.99301  -0.09199   2.96845;
+-0.00097   0.09223   0.99652  -21.32294;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97964   0.03591  -0.00060  -0.67776;
+-0.01513  -0.43914   0.89799  -46.22752;
+-0.03319  -0.89998  -0.43825  -13.90595;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33899
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01942   0.03634  -0.00398  -1.69251;
+-0.03712   0.99301  -0.09199   2.96845;
+-0.00097   0.09223   0.99652  -21.32294;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97964   0.03591  -0.00060  -0.67776;
+-0.01513  -0.43914   0.89799  -46.22752;
+-0.03319  -0.89998  -0.43825  -13.90595;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33251
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01931   0.03320  -0.00183  -1.80999;
+-0.03388   0.99377  -0.09374   3.04642;
+-0.00237   0.09374   0.99425  -21.82245;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for lh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-L_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97997   0.03262   0.00128  -0.79255;
+-0.01255  -0.44042   0.89918  -45.73973;
+-0.03089  -0.89859  -0.44063  -14.05953;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 34124
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/lh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-L_bold.func.gii
+Dim: 152868 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+7.4.1
+
+--infsl: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.mat input FSL transform.
+--outlta: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.lta output LTA.
+--src: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold.nii.gz src image (geometry).
+--trg: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/anat/T1w_preproc_masked.nii.gz trg image (geometry).
+FSLOUTPUTTYPE NIFTI_GZ 
+fsl2TkReg: mov det = 4.84388, ref det = -0.337154
+INFO: FSL2FreeSurfer: Mov volume is NIFTI with positive det,
+      applying LR flip to registration matrix.
+ LTA read, type : 1
+ 1.01931   0.03320  -0.00183  -1.80999;
+-0.03388   0.99377  -0.09374   3.04642;
+-0.00237   0.09374   0.99425  -21.82245;
+ 0.00000   0.00000   0.00000   1.00000;
+Writing  LTA to file /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.lta...
+lta_convert successful.
+Running mri_vol2surf for rh -> /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-R_bold.func.gii
+srcvol = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/func/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold.nii.gz
+srcreg = /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/xfm12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_desc-preproc_bold_to_T1w_total.lta
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = rh
+trgsubject = sub-ctrl07
+surfreg = sphere.reg
+ProjFrac = 0.5
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+INFO: overriding regsubject  with sub-ctrl07
+Input reg is LTA
+-------- original matrix -----------
+-0.97997   0.03262   0.00128  -0.79255;
+-0.01255  -0.44042   0.89918  -45.73973;
+-0.03089  -0.89859  -0.44063  -14.05953;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Reading surface /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.white
+Done reading source surface
+Reading thickness /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/surf/rh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+Projecting 0 1 0.2
+ 1 0 0 1
+using old
+ 2 0.2 0 1
+using old
+ 3 0.4 0 1
+using old
+ 4 0.6 0 1
+using old
+ 5 0.8 0 1
+using old
+ 6 1 0 1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 33396
+Masking with /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl07/label/rh.cortex.label
+Writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl07/flirt/coreg_ref12_anT1w12/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-R_bold.func.gii
+Dim: 151106 1 1
+mri_vol2surf done
+INJECTING INTO FPREP
+Running pybest on task: "pRF"
+Saving average/standard deviation
+[1;34mcall_unzscore[0m --sub ctrl07 --ses LE --out /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --fprep /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject --space fsnative --task pRF --pre
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-R_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-R_bold.func.gii
+Dealing with hemi-L
+[1;34mpybest[0m --subject ctrl07 --session LE --out-dir /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --n-comps 20 --space fsnative --verbose ERROR --save-all --n-cpus 1 --task pRF --hemi L /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject
+Dealing with hemi-R
+[1;34mpybest[0m --subject ctrl07 --session LE --out-dir /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --n-comps 20 --space fsnative --verbose ERROR --save-all --n-cpus 1 --task pRF --hemi R /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject
+Un-zcoring output from pybest
+[1;34mcall_unzscore[0m --sub ctrl07 --ses LE --out /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --fprep /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject --space fsnative --task pRF --post
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-pRF_run-1_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-pRF_run-2_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+Done
+Running pybest on task: "CSF"
+Saving average/standard deviation
+[1;34mcall_unzscore[0m --sub ctrl07 --ses LE --out /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --fprep /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject --space fsnative --task CSF --pre
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-L_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-R_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-R_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-R_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-R_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-R_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-R_bold.func.gii
+ /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject/sub-ctrl07/ses-LE/func/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-R_bold.func.gii
+Dealing with hemi-L
+[1;34mpybest[0m --subject ctrl07 --session LE --out-dir /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --n-comps 20 --space fsnative --verbose ERROR --save-all --n-cpus 1 --task CSF --hemi L /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject
+Dealing with hemi-R
+[1;34mpybest[0m --subject ctrl07 --session LE --out-dir /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --n-comps 20 --space fsnative --verbose ERROR --save-all --n-cpus 1 --task CSF --hemi R /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject
+Un-zcoring output from pybest
+[1;34mcall_unzscore[0m --sub ctrl07 --ses LE --out /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject --fprep /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_fsinject --space fsnative --task CSF --post
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-1_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-2_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-3_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-4_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-5_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-6_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-L_desc-denoised_bold.npy[0m
+ Writing [32m[1m/data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/pybest_fsinject/sub-ctrl07/ses-LE/unzscored/sub-ctrl07_ses-LE_task-CSF_run-7_space-fsnative_hemi-R_desc-denoised_bold.npy[0m
+Done
+Skipping session RE: source directory not found: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep/sub-ctrl07/ses-RE/func
+--- Applying Concatenated Transforms to 4D BOLD Runs ---

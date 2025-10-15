@@ -1,0 +1,199 @@
+Subject ID: sub-ctrl02
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+Copying FreeSurfer anatomical and brainmask volumes...
+mri_convert /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl02/mri/orig.mgz /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_preproc.nii.gz 
+reading from /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl02/mri/orig.mgz...
+TR=0.00, TE=0.00, TI=0.00, flip angle=0.00
+i_ras = (-1, -9.96968e-18, 0)
+j_ras = (9.96968e-18, 3.34527e-10, -1)
+k_ras = (0, 1, -3.34528e-10)
+writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_preproc.nii.gz...
+mri_convert /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl02/mri/brainmask.mgz /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_mask.nii.gz 
+reading from /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl02/mri/brainmask.mgz...
+TR=0.00, TE=0.00, TI=0.00, flip angle=0.00
+i_ras = (-1, -9.96968e-18, 0)
+j_ras = (9.96968e-18, 3.34527e-10, -1)
+k_ras = (0, 1, -3.34528e-10)
+writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_mask.nii.gz...
+DoAbs = 0
+maskval=0, outval=0
+Writing masked volume to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_preproc_masked.nii.gz...done.
+Generating binarized white matter mask: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_wm_mask.nii.gz
+mri_convert /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl02/mri/wm.mgz /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_wm_mask.nii.gz 
+reading from /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/freesurfer/sub-ctrl02/mri/wm.mgz...
+TR=0.00, TE=0.00, TI=0.00, flip angle=0.00
+i_ras = (-1, -9.96968e-18, 0)
+j_ras = (9.96968e-18, 3.34527e-10, -1)
+k_ras = (0, 1, -3.34528e-10)
+writing to /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_wm_mask.nii.gz...
+White matter mask generated successfully and saved as /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives/fmriprep_POST_ALIGN_bstart/sub-ctrl02/anat/T1w_wm_mask.nii.gz
+Copying functional files for ses-LE...
+Subject ID: sub-ctrl02
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+Copying functional files for ses-LE...
+Copying functional files for ses-RE...
+sending incremental file list
+func/
+func/sub-ctrl02_ses-LE_task-CSF_run-1_desc-brain_mask.json
+func/sub-ctrl02_ses-LE_task-CSF_run-1_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-LE_task-CSF_run-1_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-LE_task-CSF_run-1_desc-preproc_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-1_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-1_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-1_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-1_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-2_desc-brain_mask.json
+func/sub-ctrl02_ses-LE_task-CSF_run-2_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-LE_task-CSF_run-2_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-LE_task-CSF_run-2_desc-preproc_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-2_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-2_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-2_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-2_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-3_desc-brain_mask.json
+func/sub-ctrl02_ses-LE_task-CSF_run-3_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-LE_task-CSF_run-3_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-LE_task-CSF_run-3_desc-preproc_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-3_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-3_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-3_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-3_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-4_desc-brain_mask.json
+func/sub-ctrl02_ses-LE_task-CSF_run-4_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-LE_task-CSF_run-4_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-LE_task-CSF_run-4_desc-preproc_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-4_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-4_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-4_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-4_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-5_desc-brain_mask.json
+func/sub-ctrl02_ses-LE_task-CSF_run-5_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-LE_task-CSF_run-5_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-LE_task-CSF_run-5_desc-preproc_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-5_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-5_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-CSF_run-5_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-LE_task-CSF_run-5_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-LE_task-pRF_run-1_desc-brain_mask.json
+func/sub-ctrl02_ses-LE_task-pRF_run-1_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-LE_task-pRF_run-1_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-LE_task-pRF_run-1_desc-preproc_bold.json
+func/sub-ctrl02_ses-LE_task-pRF_run-1_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-pRF_run-1_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-pRF_run-1_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-LE_task-pRF_run-1_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-LE_task-pRF_run-2_desc-brain_mask.json
+func/sub-ctrl02_ses-LE_task-pRF_run-2_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-LE_task-pRF_run-2_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-LE_task-pRF_run-2_desc-preproc_bold.json
+func/sub-ctrl02_ses-LE_task-pRF_run-2_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-pRF_run-2_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-LE_task-pRF_run-2_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-LE_task-pRF_run-2_space-fsnative_hemi-R_bold.json
+
+sent 5,762,794 bytes  received 1,084 bytes  202,241.33 bytes/sec
+total size is 5,756,120  speedup is 1.00
+sending incremental file list
+func/
+func/sub-ctrl02_ses-RE_task-CSF_run-1_desc-brain_mask.json
+func/sub-ctrl02_ses-RE_task-CSF_run-1_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-RE_task-CSF_run-1_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-RE_task-CSF_run-1_desc-preproc_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-1_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-1_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-1_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-1_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-2_desc-brain_mask.json
+func/sub-ctrl02_ses-RE_task-CSF_run-2_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-RE_task-CSF_run-2_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-RE_task-CSF_run-2_desc-preproc_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-2_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-2_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-2_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-2_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-3_desc-brain_mask.json
+func/sub-ctrl02_ses-RE_task-CSF_run-3_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-RE_task-CSF_run-3_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-RE_task-CSF_run-3_desc-preproc_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-3_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-3_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-3_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-3_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-4_desc-brain_mask.json
+func/sub-ctrl02_ses-RE_task-CSF_run-4_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-RE_task-CSF_run-4_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-RE_task-CSF_run-4_desc-preproc_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-4_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-4_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-4_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-4_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-5_desc-brain_mask.json
+func/sub-ctrl02_ses-RE_task-CSF_run-5_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-RE_task-CSF_run-5_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-RE_task-CSF_run-5_desc-preproc_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-5_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-5_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-CSF_run-5_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-RE_task-CSF_run-5_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-RE_task-pRF_run-1_desc-brain_mask.json
+func/sub-ctrl02_ses-RE_task-pRF_run-1_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-RE_task-pRF_run-1_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-RE_task-pRF_run-1_desc-preproc_bold.json
+func/sub-ctrl02_ses-RE_task-pRF_run-1_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-pRF_run-1_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-pRF_run-1_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-RE_task-pRF_run-1_space-fsnative_hemi-R_bold.json
+func/sub-ctrl02_ses-RE_task-pRF_run-2_desc-brain_mask.json
+func/sub-ctrl02_ses-RE_task-pRF_run-2_desc-confounds_timeseries.json
+func/sub-ctrl02_ses-RE_task-pRF_run-2_desc-confounds_timeseries.tsv
+func/sub-ctrl02_ses-RE_task-pRF_run-2_desc-preproc_bold.json
+func/sub-ctrl02_ses-RE_task-pRF_run-2_from-T1w_to-scanner_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-pRF_run-2_from-scanner_to-T1w_mode-image_xfm.txt
+func/sub-ctrl02_ses-RE_task-pRF_run-2_space-fsnative_hemi-L_bold.json
+func/sub-ctrl02_ses-RE_task-pRF_run-2_space-fsnative_hemi-R_bold.json
+
+sent 5,740,012 bytes  received 1,084 bytes  166,408.58 bytes/sec
+total size is 5,733,332  speedup is 1.00
+Computing mean for sub-ctrl02_ses-LE_task-CSF_run-1_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl02_ses-LE_task-CSF_run-2_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl02_ses-LE_task-CSF_run-3_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl02_ses-LE_task-CSF_run-4_desc-preproc_bold.nii.gz
+Computing mean for sub-ctrl02_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz
+Subject ID: sub-ctrl02
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+Copying functional files for ses-LE...
+Copying functional files for ses-RE...
+sending incremental file list
+
+sent 2,915 bytes  received 17 bytes  5,864.00 bytes/sec
+total size is 5,756,120  speedup is 1,963.21
+sending incremental file list
+
+sent 2,921 bytes  received 17 bytes  5,876.00 bytes/sec
+total size is 5,733,332  speedup is 1,951.44
+Computing mean for sub-ctrl02_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz
+Subject ID: sub-ctrl02
+Derivatives Dir: /data1/projects/dumoulinlab/Lab_members/Marcus/projects/vdNCSF/BIDS_directory/derivatives
+fMRIPrep Dir Name: fmriprep
+fprep start L bold
+------------------------------------------
+Copying functional files for ses-LE...
+Copying functional files for ses-RE...
+sending incremental file list
+
+sent 2,915 bytes  received 17 bytes  5,864.00 bytes/sec
+total size is 5,756,120  speedup is 1,963.21
+sending incremental file list
+
+sent 2,921 bytes  received 17 bytes  5,876.00 bytes/sec
+total size is 5,733,332  speedup is 1,951.44
+Computing mean for sub-ctrl02_ses-LE_task-CSF_run-5_desc-preproc_bold.nii.gz
